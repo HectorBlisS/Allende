@@ -2,16 +2,16 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {NavBarDisplay} from './NavBarDisplay';
 import {withRouter} from 'react-router-dom';
+import {toggleDrawer} from '../../actions/barActions';
 
 function mapStateToProps(state, ownProps) {
-    return {
-        state: state
-    };
+    console.log(state);
+    return {...state.bar};
 }
 
 function mapDispatchToProps(dispatch) {
     return {
-        actions: bindActionCreators(dispatch)
+        onMenuClick: bindActionCreators(toggleDrawer, dispatch)
     };
 }
 
