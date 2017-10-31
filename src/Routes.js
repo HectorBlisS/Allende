@@ -4,6 +4,7 @@ import InventarioPage from "./components/inventario/InventarioPage";
 import LoginContainer from "./components/login/LoginContainer";
 import RegistroContainer from './components/login/RegistroContainer';
 import CajaComponent from "./components/caja/CajaComponent";
+import AdminContainer from './components/admin/AdminContainer';
 
 
 const Routes = () => (
@@ -12,6 +13,7 @@ const Routes = () => (
         <Route path="/login" component={LoginContainer}/>
         <Route path="/registro" component={RegistroContainer}/>
         <Route path="/caja" component={CajaComponent}/>
+        <Route path="/admin" component={AdminContainer}/>
     </Switch>
 );
 
