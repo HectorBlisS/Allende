@@ -1,12 +1,13 @@
 import React from 'react';
 import {Table, TableHeader, TableRow, TableHeaderColumn, TableBody, TableRowColumn} from 'material-ui';
+import './admin.css';
 
 
 
 
 const DistributorList = ({props}) => {
     return (
-        <div>
+        <div className="distributors-table-container">
             <Table>
                 <TableHeader
                     displaySelectAll={false}
@@ -14,13 +15,15 @@ const DistributorList = ({props}) => {
                     <TableRow>
                         <TableHeaderColumn>ID</TableHeaderColumn>
                         <TableHeaderColumn>Name</TableHeaderColumn>
-                        <TableHeaderColumn>Inventario</TableHeaderColumn>
+                        <TableHeaderColumn>Last Purchase</TableHeaderColumn>
+                        <TableHeaderColumn>Most Sold Product</TableHeaderColumn>
+                        <TableHeaderColumn>Average Purchase($)</TableHeaderColumn>
                     </TableRow>
                 </TableHeader>
                 <TableBody
                     displayRowCheckbox={false}>
                     <TableRow>
-                        <TableRowColumn>4567</TableRowColumn>
+                        <TableRowColumn>456yu7</TableRowColumn>
                         <TableRowColumn>ChuckyChelas</TableRowColumn>
                         <TableRowColumn>$123</TableRowColumn>
                     </TableRow>

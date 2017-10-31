@@ -45,7 +45,7 @@ class AdminContainer extends Component {
                     actions={actions}
                     modal={false}
                     open={this.state.newDist}
-                    contentStyle={{width:'50%'}}
+                    contentStyle={{width:'100%'}}
                     onRequestClose={this.closeNewDistributorModal}>
                     <NewDistributorForm/>
                 </Dialog>
