@@ -15,7 +15,8 @@ export function addDistributor(distributor){
     return function(dispatch, getState){
         return firebase.database().ref('distributors').push(distributor)
             .then(r=>{
-                //dispatch(addDistributorSuccess(distributor);
+                distributor['key'] = r.key;
+                dispatch(addDistributorSuccess(distributor));
                 console.log(r)
             })
     }

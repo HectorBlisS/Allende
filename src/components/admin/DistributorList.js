@@ -22,12 +22,16 @@ const DistributorList = ({distributors}) => {
                 </TableHeader>
                 <TableBody
                     displayRowCheckbox={false}>
-                    {distributors.map(d=>{
-                        <TableRow>
-                            <TableRowColumn>{d.key}</TableRowColumn>
-                            <TableRowColumn>{d.name}</TableRowColumn>
-                            <TableRowColumn>$123</TableRowColumn>
-                        </TableRow>
+                    {distributors.map(d => {
+                        return (
+                            <TableRow>
+                                <TableRowColumn>{d.key}</TableRowColumn>
+                                <TableRowColumn>{d.name}</TableRowColumn>
+                                <TableRowColumn>January 15</TableRowColumn>
+                                <TableRowColumn>Artesanal Beer {Math.round(Math.random() * 3 +1)}</TableRowColumn>
+                                <TableRowColumn>$123</TableRowColumn>
+                            </TableRow>
+                        );
                     })}
 
                 </TableBody>
