@@ -7,12 +7,21 @@ import {BrowserRouter} from 'react-router-dom';
 import {MuiThemeProvider} from "material-ui";
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
+//redux
+import {configureStore} from './store/configureStore';
+import {Provider} from 'react-redux';
+
 import 'toastr/build/toastr.css';
-
-
-
 injectTapEventPlugin();
 
+
+const store = configureStore();
+
+const WithProvider = () => (
+    <Provider store={store}>
+        <WithRouter/>
+    </Provider>
+);
 
 const WithRouter =()=>(
   <BrowserRouter>
@@ -26,6 +35,5 @@ const Main = ()=>(
     </MuiThemeProvider>
 );
 
-
-ReactDOM.render(<WithRouter />, document.getElementById('root'));
+ReactDOM.render(<WithProvider />, document.getElementById('root'));
 registerServiceWorker();
