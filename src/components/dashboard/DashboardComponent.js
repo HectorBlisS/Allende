@@ -7,7 +7,7 @@ import ProductoDash from "./ProductoDash";
 
 const DashboardComponent = (props) => {
     const {
-        user,
+        distributor,
         slogan,
         ultimaVenta,
         promedioCompras,
@@ -18,7 +18,7 @@ const DashboardComponent = (props) => {
         <div className="dashMain">
             <div className="userCard">
                 < UserCard
-                    title={user}
+                    title={distributor.name}
                     subtitle={slogan}
                 />
             </div>
@@ -48,16 +48,6 @@ const DashboardComponent = (props) => {
                 </div>
             </div>
 
-            {/*<div style={{display:'inline'}}>*/}
-                {/*<div className="ventasPiezaMain">*/}
-                    {/*<VentasComponent*/}
-                        {/*title="Lista de ventas"*/}
-                        {/*subtitle="Por cantidad de cajas"*/}
-                        {/*ventas={200}*/}
-                        {/*medida="cajas"*/}
-                    {/*/>*/}
-                {/*</div>*/}
-            {/*</div>*/}
             <h2>Ventas</h2>
             <div style={{display:'inline'}}>
                 <div className="ventasPiezaMain">
