@@ -1,6 +1,7 @@
 import React from 'react';
 import {Table, TableHeader, TableRow, TableHeaderColumn, TableBody, TableRowColumn} from 'material-ui';
 import './admin.css';
+import {Link} from 'react-router-dom';
 
 
 
@@ -24,8 +25,10 @@ const DistributorList = ({distributors}) => {
                     displayRowCheckbox={false}>
                     {distributors.map(d => {
                         return (
-                            <TableRow>
-                                <TableRowColumn>{d.key}</TableRowColumn>
+                            <TableRow key={d.key}>
+                                <Link to={"/admin/distributors/" + d.key}>
+                                    <TableRowColumn>{d.key}</TableRowColumn>
+                                </Link>
                                 <TableRowColumn>{d.name}</TableRowColumn>
                                 <TableRowColumn>January 15</TableRowColumn>
                                 <TableRowColumn>Artesanal Beer {Math.round(Math.random() * 3 +1)}</TableRowColumn>

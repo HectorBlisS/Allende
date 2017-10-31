@@ -4,7 +4,24 @@ import {TextField} from 'material-ui';
 const NewDistributorForm = ({newDistributorText}) => {
     return (
         <div>
-            <TextField name='name' onChange={newDistributorText}/>
+            <TextField
+                floatingLabelText="Name"
+                name='name'
+                onChange={newDistributorText}
+                className="element-distributor-form"
+            /><br/>
+            <TextField
+                floatingLabelText="Address"
+                name='address'
+                onChange={newDistributorText}
+                className="element-distributor-form"
+            /><br/>
+            <TextField
+                floatingLabelText="RFC"
+                name='rfc'
+                onChange={newDistributorText}
+                className="element-distributor-form"
+            />
         </div>
     )
 };
