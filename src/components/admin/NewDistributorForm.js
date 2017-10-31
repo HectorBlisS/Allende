@@ -1,9 +1,10 @@
 import React from 'react';
+import {TextField} from 'material-ui';
 
-const NewDistributorForm = ({props}) => {
+const NewDistributorForm = ({newDistributorText}) => {
     return (
         <div>
-            el form
+            <TextField name='name' onChange={newDistributorText}/>
         </div>
     )
 };

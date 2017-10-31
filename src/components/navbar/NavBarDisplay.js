@@ -4,14 +4,16 @@
 import React from 'react';
 import {AppBar} from 'material-ui';
 
-export const NavBarDisplay = ({props}) => {
+export const NavBarDisplay = ({title, drawer, slug, onMenuClick}) => {
     return (
         <div>
             <AppBar
                 style={styles.bar}
-                title="Inventario"
+                title={title}
                 iconClassNameRight="muidocs-icon-navigation-expand-more"
+                onLeftIconButtonTouchTap={onMenuClick}
             />
+
         </div>
     );
 };

@@ -5,7 +5,7 @@ import './admin.css';
 
 
 
-const DistributorList = ({props}) => {
+const DistributorList = ({distributors}) => {
     return (
         <div className="distributors-table-container">
             <Table>
@@ -22,11 +22,13 @@ const DistributorList = ({props}) => {
                 </TableHeader>
                 <TableBody
                     displayRowCheckbox={false}>
-                    <TableRow>
-                        <TableRowColumn>456yu7</TableRowColumn>
-                        <TableRowColumn>ChuckyChelas</TableRowColumn>
-                        <TableRowColumn>$123</TableRowColumn>
-                    </TableRow>
+                    {distributors.map(d=>{
+                        <TableRow>
+                            <TableRowColumn>{d.key}</TableRowColumn>
+                            <TableRowColumn>{d.name}</TableRowColumn>
+                            <TableRowColumn>$123</TableRowColumn>
+                        </TableRow>
+                    })}
 
                 </TableBody>
             </Table>

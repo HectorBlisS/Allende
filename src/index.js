@@ -12,10 +12,12 @@ import {configureStore} from './store/configureStore';
 import {Provider} from 'react-redux';
 
 import 'toastr/build/toastr.css';
+import {getAllDistributors} from "./actions/distributorActions";
 injectTapEventPlugin();
 
 
 const store = configureStore();
+store.dispatch(getAllDistributors());
 
 const WithProvider = () => (
     <Provider store={store}>

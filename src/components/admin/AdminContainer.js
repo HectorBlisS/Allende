@@ -1,24 +1,47 @@
 import React, {Component} from 'react';
-import DistributorList from "./DistributorList";
-import {FloatingActionButton, Dialog, FlatButton} from 'material-ui';
-import ContentAdd from 'material-ui/svg-icons/content/add';
+
+//components
 import './admin.css';
 import NewDistributorForm from "./NewDistributorForm";
+import DistributorList from "./DistributorList";
+import toastr from 'toastr';
+//material-ui
+import {FloatingActionButton, Dialog, FlatButton} from 'material-ui';
+import ContentAdd from 'material-ui/svg-icons/content/add';
+
 
 class AdminContainer extends Component {
 
+
+
     state={
-        newDist:false,
+        newDistModal:false,
+        newDistributor:{},
+        distributors:[],
     };
-
-
+    //all to save a new distributor
+    newDistributorText=(e)=>{
+        let newDistributor = this.state.newDistributor;
+        let field = e.target.name;
+        newDistributor[field] = e.target.value;
+        this.setState({newDistributor});
+        console.log(e.target.value)
+    };
+    addDistributor=()=>{
+        this.props.distributorActions.addDistributor(this.state.newDistributor).then(r=>{
+            console.log(r);
+            this.closeNewDistributorModal();
+            toastr.success('You added a new Distributor')
+        })
+    };
     openNewDistributorModal=()=>{
-        this.setState({newDist:true})
+        this.setState({newDistModal:true})
     };
     closeNewDistributorModal=()=>{
-        this.setState({newDist:false})
+        this.setState({newDistModal:false})
     };
     render() {
+
         const actions = [
             <FlatButton
                 label="Cancel"
@@ -29,12 +52,12 @@ class AdminContainer extends Component {
                 label="Submit"
                 primary={true}
                 keyboardFocused={true}
-                onClick={this.closeNewDistributorModal}
+                onClick={this.addDistributor}
             />,
         ];
         return (
             <div>
-                <DistributorList/>
+                <DistributorList distributors={this.props.distributors}/>
                 <FloatingActionButton
                     className="add-distributor-button"
                     onTouchTap={this.openNewDistributorModal}>
@@ -44,10 +67,10 @@ class AdminContainer extends Component {
                     title="Add a new Distributor"
                     actions={actions}
                     modal={false}
-                    open={this.state.newDist}
+                    open={this.state.newDistModal}
                     contentStyle={{width:'100%'}}
                     onRequestClose={this.closeNewDistributorModal}>
-                    <NewDistributorForm/>
+                    <NewDistributorForm newDistributorText={this.newDistributorText}/>
                 </Dialog>
             </div>
         )

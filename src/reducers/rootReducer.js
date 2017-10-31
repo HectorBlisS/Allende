@@ -1,4 +1,7 @@
 import {combineReducers} from 'redux';
+import {barReducer} from "./barReducer";
+import {distributorReducer} from "./distributorReducer";
+
 
 
 function mientrasReducer(state="", action){
@@ -9,5 +12,7 @@ function mientrasReducer(state="", action){
 }
 
 export const rootReducer = combineReducers({
-    mientrasReducer
+    mientrasReducer,
+    bar:barReducer,
+    distributorReducer:distributorReducer,
 });
