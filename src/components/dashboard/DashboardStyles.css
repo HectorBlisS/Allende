@@ -1,0 +1,66 @@
+.dashMain {
+    display: block;
+    padding-top:  68px;
+    padding-left: 10vw;
+    padding-right: 10vw;
+    text-align: left;
+    /*background-image: url(https://static.pexels.com/photos/1862/summer-sunshine-alcohol-drink.jpg);*/
+    /*background-size: cover;*/
+    /*background-attachment: fixed;*/
+    background: rgba(255,255,255,1);
+    font-family: 'Roboto',sans-serif;
+}
+
+.ventasPiezaMain, .ventasPrecioMain {
+    height: 40%;
+    width: 48%;
+    display: inline-block;
+    /*margin-top: 20px;*/
+}
+
+@media screen and (max-width: 900px) {
+    .ventasPiezaMain, .ventasPrecioMain {
+        height: 30%;
+        width: 100%;
+        display: inline-block;
+        /*margin-top: 20px;*/
+    }
+}
+
+.ventasPiezaMain {
+    margin-right: 4%;
+}
+
+.ventasMain {
+    height: 40%;
+    width: 46%;
+    margin: 20px 0;
+    display: inline-block;
+}
+
+.cardVentas{
+    padding: 10px 40px;
+}
+
+.graficaVentas{
+    width: 100%;
+}
+
+.userCard{
+    margin-top: 80px;
+}
+
+.ultimaVenta {
+    margin-top: 10px;
+}
+
+.showResumen{
+    padding: 10px 20px;
+}
+
+.productoDash {
+}
+
+.productoDashElement {
+    display: inline;
+}
