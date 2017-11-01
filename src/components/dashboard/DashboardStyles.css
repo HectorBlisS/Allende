@@ -1,8 +1,5 @@
 .dashMain {
     display: block;
-    padding-top:  68px;
-    padding-left: 10vw;
-    padding-right: 10vw;
     text-align: left;
     /*background-image: url(https://static.pexels.com/photos/1862/summer-sunshine-alcohol-drink.jpg);*/
     /*background-size: cover;*/
@@ -63,4 +60,9 @@
 
 .productoDashElement {
     display: inline;
+}
+
+/*DAshboard Classes*/
+.dashboard-component{
+    padding:2%;
 }
