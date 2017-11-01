@@ -5,11 +5,13 @@ import {withRouter} from 'react-router-dom';
 import {toggleDrawer} from '../../actions/barActions';
 
 function mapStateToProps(state, ownProps) {
-    console.log(state);
+    //console.log(state);
     return {...state.bar};
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, ownProps) {
+    // const path = ownProps.match.path;
+    // if(path === "/") dispatch(setTitle("Cerveceria Allende"));
     return {
         onMenuClick: bindActionCreators(toggleDrawer, dispatch)
     };

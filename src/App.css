@@ -1,4 +1,18 @@
 @import "./components/login/login.css";
+@import "./components/inventario/inventario.css";
+
+.drawer-open{
+  padding-left: 256px;
+  transition: all .3s ease;
+}
+
+.drawer-close{
+  transition: all .3s ease;
+}
+
+.transition{
+  transition: all .3s ease;
+}
 
 .App {
   text-align: center;

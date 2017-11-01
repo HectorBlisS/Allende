@@ -2,7 +2,7 @@ const initial = {
   bar:{
       title:"Cervecería Allende",
       slug:"cerveceria",
-      drawer:false
+      drawer:true
   }
 };
 

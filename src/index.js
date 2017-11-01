@@ -15,17 +15,13 @@ import 'toastr/build/toastr.css';
 injectTapEventPlugin();
 
 
-const store = configureStore();
-
-const WithProvider = () => (
-    <Provider store={store}>
-        <WithRouter/>
-    </Provider>
-);
+export const store = configureStore();
 
 const WithRouter =()=>(
   <BrowserRouter>
-      <Main/>
+      <Provider store={store}>
+         <Main/>
+      </Provider>
   </BrowserRouter>
 );
 
@@ -35,5 +31,5 @@ const Main = ()=>(
     </MuiThemeProvider>
 );
 
-ReactDOM.render(<WithProvider />, document.getElementById('root'));
+ReactDOM.render(<WithRouter />, document.getElementById('root'));
 registerServiceWorker();
