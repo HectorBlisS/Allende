@@ -1,10 +1,10 @@
 import React from 'react';
 import './DashboardStyles.css';
 //material-ui
-import {GridList, GridTile} from 'material-ui';
+import {GridList, GridTile, Paper} from 'material-ui';
 import DistributorMain from "./DistributorMain";
-import VentasComponent from "./VentasComponent";
-import ShowResumen from "./ShowResumen";
+import * as fakeFirebase from './fake';
+import Grafica from "./Grafica";
 
 const DashboardComponent = (props) => {
     const {
@@ -16,23 +16,46 @@ const DashboardComponent = (props) => {
         productoMenosComprado
     } = props;
     return (
-       <div className='dashboard-component'>
-           <GridList cols={4} cellHeight={'auto'}>
-               <GridTile cols={1}>
-                   <DistributorMain distributor={distributor}/>
+        <div className='dashboard-component'>
+            <GridList cols={3} cellHeight={'auto'}>
+                <GridTile className="dashboard-summary-container" cols={1}>
+                    <DistributorMain distributor={distributor}/>
                </GridTile>
-               <GridTile cols={3}>
-                   <GridList>
-                       <GridTile>
-                           <VentasComponent
-                               title='Lista de ventas'
-                                ventas='200'/>
+               <GridList cols={2} cellHeight={'auto'}>
+                   <GridList cols={2} cellHeight={'auto'}>
+                       <GridTile className="dashboard-summary-container" cols={1}>
+                           <Paper className="summary_container" zDepth={2}>
+                               <Grafica
+                                   medidasLista={fakeFirebase.data}
+                               />
+                           </Paper>
                        </GridTile>
-                       <GridTile>
-
+                       <GridTile className="dashboard-summary-container" cols={1}>
+                           <Paper className="summary_container" zDepth={2}>
+                               <Grafica
+                                   medidasLista={fakeFirebase.data}
+                               />
+                           </Paper>
                        </GridTile>
                    </GridList>
-               </GridTile>
+                   <GridList cellHeight={'auto'} cols={2}>
+                       <GridTile className="dashboard-summary-container" cols={1}>
+                           <Paper className="summary_container" zDepth={2}>
+                               <Grafica
+                                   medidasLista={fakeFirebase.data}
+                               />
+                           </Paper>
+                       </GridTile>
+                       <GridTile className="dashboard-summary-container" cols={1}>
+                           <Paper className="summary_container" zDepth={2}>
+                               <Grafica
+                                   medidasLista={fakeFirebase.data}
+                               />
+                           </Paper>
+                       </GridTile>
+                   </GridList>
+               </GridList>
+
            </GridList>
        </div>
     );
