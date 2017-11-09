@@ -9,7 +9,6 @@ import toastr from 'toastr';
 import {FloatingActionButton, Dialog, FlatButton} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 
-
 class AdminContainer extends Component {
 
 
@@ -17,8 +16,9 @@ class AdminContainer extends Component {
     state={
         newDistModal:false,
         newDistributor:{},
-        distributors:[],
+        distributors:[]
     };
+
     //all to save a new distributor
     newDistributorText=(e)=>{
         let newDistributor = this.state.newDistributor;
