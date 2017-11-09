@@ -22,6 +22,12 @@ const NewDistributorForm = ({newDistributorText}) => {
                 onChange={newDistributorText}
                 className="element-distributor-form"
             />
+            <TextField
+                floatingLabelText="E-mail"
+                name='email'
+                onChange={newDistributorText}
+                className="element-distributor-form"
+            />
         </div>
     )
 };

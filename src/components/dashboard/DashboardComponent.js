@@ -29,7 +29,7 @@ const DashboardComponent = (props) => {
                                 ventas='200'/>
                        </GridTile>
                        <GridTile>
-                           <ShowResumen/>
+
                        </GridTile>
                    </GridList>
                </GridTile>

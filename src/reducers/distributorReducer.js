@@ -5,7 +5,7 @@ export function distributorReducer(state=[], action){
         case GET_ALL_DISTRIBUTORS_SUCCESS:
             return action.distributors;
         case ADD_DISTRIBUTOR_SUCCESS:
-            return [...state, action.distributor ];
+            return [action.distributor, ...state ];
 
         default:
             return state;

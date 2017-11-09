@@ -16,6 +16,11 @@ export function addDistributor(distributor){
         return firebase.database().ref('distributors').push(distributor)
             .then(r=>{
                 distributor['key'] = r.key;
+                firebase.auth().createUserWithEmailAndPassword(distributor.email, r.key).then(r=>{
+                    console.log(r)
+                    firebase.database().ref('users/'+distributor.key)
+                        .set({email:r.email, uid:r.uid, isAdmin:false})
+                });
                 dispatch(addDistributorSuccess(distributor));
                 console.log(r)
             })
