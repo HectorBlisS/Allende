@@ -13,11 +13,13 @@ import {Provider} from 'react-redux';
 
 import 'toastr/build/toastr.css';
 import {getAllDistributors} from "./actions/distributorActions";
+import {comprobarUsuario} from "./actions/userActions";
 injectTapEventPlugin();
 
 
 const store = configureStore();
 store.dispatch(getAllDistributors());
+store.dispatch(comprobarUsuario());
 
 const WithProvider = () => (
     <Provider store={store}>

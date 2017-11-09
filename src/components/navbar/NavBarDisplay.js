@@ -1,17 +1,28 @@
-/**
- * Created by BlisS on 22/03/17.
- */
 import React from 'react';
-import {AppBar} from 'material-ui';
+import {AppBar, MenuItem, IconMenu, IconButton} from 'material-ui';
+import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 
-export const NavBarDisplay = ({title, drawer, slug, onMenuClick}) => {
+export const NavBarDisplay = ({title, drawer, slug, onMenuClick, userActions}) => {
     return (
         <div>
             <AppBar
                 style={styles.bar}
                 title={title}
-                iconClassNameRight="muidocs-icon-navigation-expand-more"
                 onLeftIconButtonTouchTap={onMenuClick}
+                iconElementRight={
+                    <IconMenu
+
+                        iconButtonElement={
+                            <IconButton><MoreVertIcon /></IconButton>
+                        }
+                        targetOrigin={{horizontal: 'right', vertical: 'top'}}
+                        anchorOrigin={{horizontal: 'right', vertical: 'top'}}
+                    >
+                        <MenuItem primaryText="Refresh" />
+                        <MenuItem primaryText="Help" />
+                        <MenuItem primaryText="Sign out" onClick={userActions.cerrarSesion}/>
+                    </IconMenu>
+                }
             />
 
         </div>

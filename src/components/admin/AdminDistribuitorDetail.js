@@ -5,7 +5,7 @@ import DistribuitorDetailContainer from "./DistribuitorDetailContainer";
 
 
 function mapStateToProps(state, ownProps){
-    let distributor = state.distributorReducer.filter(d=>{
+    let distributor = state.distributors.filter(d=>{
         return d.key === ownProps.match.params.id
     });
     return{
