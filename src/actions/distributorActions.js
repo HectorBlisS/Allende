@@ -13,17 +13,16 @@ export function addDistributorSuccess(distributor){
 
 export function addDistributor(distributor){
     return function(dispatch, getState){
-        return firebase.database().ref('distributors').push(distributor)
-            .then(r=>{
-                distributor['key'] = r.key;
-                firebase.auth().createUserWithEmailAndPassword(distributor.email, r.key).then(r=>{
-                    console.log(r)
-                    firebase.database().ref('users/'+distributor.key)
-                        .set({email:r.email, uid:r.uid, isAdmin:false})
-                });
-                dispatch(addDistributorSuccess(distributor));
-                console.log(r)
-            })
+        return firebase.auth().createUserWithEmailAndPassword(distributor.email, 'putostodos')
+            .then(user=>{
+                distributor['isAdmin']=false;
+                distributor['key']=user.uid;
+                firebase.database().ref('distributors/'+user.uid).set(distributor)
+                    .then(r=>{
+                        dispatch(addDistributorSuccess(distributor));
+                    })
+            });
+
     }
 }
 
