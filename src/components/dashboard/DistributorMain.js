@@ -1,5 +1,6 @@
 import React from 'react';
 import {Paper, Avatar, List, ListItem, CardTitle} from 'material-ui';
+import moment from 'moment';
 
 const DistributorMain = ({distributor}) => {
     return (
@@ -8,13 +9,15 @@ const DistributorMain = ({distributor}) => {
                 className="summary_avatar"
                 src={'http://cerveceriaallende.mx/wp-content/uploads/2015/05/logo.png'}
                 size={150}/>
-            <List className="summary_list">
-                <ListItem><h2>{distributor.name}</h2></ListItem>
-                <ListItem >{distributor.address}</ListItem>
-                <ListItem>{distributor.rfc}</ListItem>
-                <ListItem>Stock: 20000 </ListItem>
-                <ListItem>Last Purchase: 27/08/2017</ListItem>
-            </List>
+            <ul className="summary_list">
+                <li className="summary_element"><h2>{distributor.name}</h2></li>
+                <li className="summary_element">Dirección: {distributor.address}</li>
+                <li className="summary_element">Rfc: {distributor.rfc}</li>
+                <li className="summary_element">Cajas vendidas: { Math.round( Math.random() * 500 + 100)  }</li>
+                <li className="summary_element">Cantidad vendida: ${ Math.round( Math.random() * 50000 + 100)  }</li>
+                <li className="summary_element">Stock: 20000 </li>
+                <li className="summary_element">última venta: {moment().format('DD MMM YYYY')}</li>
+            </ul>
         </Paper>
     )
 };
