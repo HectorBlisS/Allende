@@ -16,8 +16,8 @@ const DashboardComponent = (props) => {
         productoMenosComprado
     } = props;
     return (
-        <div className='dashboard-component'>
-            <GridList cols={3} cellHeight={'auto'}>
+        <div>
+            <GridList className='dashboard-component' cols={3} cellHeight={'auto'}>
                 <GridTile className="dashboard-summary-container" cols={1}>
                     <DistributorMain distributor={distributor}/>
                </GridTile>
