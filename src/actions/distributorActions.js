@@ -33,7 +33,7 @@ export function getAllDistributorsSuccess(distributors){
     }
 }
 
-export function getAllDistributors(distributor){
+export function getAllDistributors(){
     return function(dispatch, getState){
         return firebase.database().ref('distributors').once('value')
             .then(r=>{

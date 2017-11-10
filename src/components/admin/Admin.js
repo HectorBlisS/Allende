@@ -7,7 +7,7 @@ import AdminContainer from "./AdminContainer";
 
 function mapStateToProps(state, ownProps){
     return{
-        distributors:state.distributorReducer,
+        distributors:state.distributors,
         fetched:state.distributors!==undefined
     }
 }

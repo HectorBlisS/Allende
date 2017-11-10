@@ -57,21 +57,26 @@ class AdminContainer extends Component {
         ];
         return (
             <div>
-                <DistributorList distributors={this.props.distributors}/>
-                <FloatingActionButton
-                    className="add-distributor-button"
-                    onTouchTap={this.openNewDistributorModal}>
-                    <ContentAdd />
-                </FloatingActionButton>
-                <Dialog
-                    title="Add a new Distributor"
-                    actions={actions}
-                    modal={false}
-                    open={this.state.newDistModal}
-                    contentStyle={{width:'30%'}}
-                    onRequestClose={this.closeNewDistributorModal}>
-                    <NewDistributorForm newDistributorText={this.newDistributorText}/>
-                </Dialog>
+                {!this.props.fecthed?
+                    <div>
+                        <DistributorList distributors={this.props.distributors}/>
+                        <FloatingActionButton
+                            className="add-distributor-button"
+                            onTouchTap={this.openNewDistributorModal}>
+                            <ContentAdd />
+                        </FloatingActionButton>
+                        <Dialog
+                            title="Add a new Distributor"
+                            actions={actions}
+                            modal={false}
+                            open={this.state.newDistModal}
+                            contentStyle={{width:'30%'}}
+                            onRequestClose={this.closeNewDistributorModal}>
+                            <NewDistributorForm newDistributorText={this.newDistributorText}/>
+                        </Dialog>
+                    </div>:
+                    <p>loading</p>
+                }
             </div>
         )
     }

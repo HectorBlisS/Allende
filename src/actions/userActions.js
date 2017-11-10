@@ -1,5 +1,6 @@
 import firebase from '../firebase';
 import toastr from 'toastr';
+import {getInventario} from "./inventarioActions";
 //import alertify from 'alertify.js';
 
 
@@ -99,6 +100,7 @@ export function comprobarUsuario(){
         return firebase.auth().onAuthStateChanged((u) => {
             if(u){
                 dispatch(comprobarUsuarioAction(u));
+                dispatch(getInventario());
 
             }else{
 

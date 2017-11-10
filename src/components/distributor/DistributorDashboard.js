@@ -27,9 +27,10 @@ function mapStateToProps(state, ownProps) {
      });
     return{
         distributor:distributor[0],
-        user:state.user,
         fetched:distributor[0]!==undefined,
-        fetched2:state.user!==undefined
+        fetched2:state.user!==undefined,
+        inventario:state.inventario,
+
 
     }
 }
