@@ -1,4 +1,5 @@
-import firebase from '../firebase';
+import firebase, {secondaryApp} from '../firebase';
+
 
 
 export const ADD_DISTRIBUTOR_SUCCESS = 'ADD_DISTRIBUTOR_SUCCESS';
@@ -13,8 +14,9 @@ export function addDistributorSuccess(distributor){
 
 export function addDistributor(distributor){
     return function(dispatch, getState){
-        return firebase.auth().createUserWithEmailAndPassword(distributor.email, 'putostodos')
+        return secondaryApp.auth().createUserWithEmailAndPassword(distributor.email, 'putostodos')
             .then(user=>{
+
                 distributor['isAdmin']=false;
                 distributor['key']=user.uid;
                 firebase.database().ref('distributors/'+user.uid).set(distributor)

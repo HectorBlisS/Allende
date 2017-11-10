@@ -8,26 +8,28 @@ export function addItemsSuccess(item){
     }
 }
 
-export function addItemSuccess(item){
+export function addItem(item){
     return function(dispatch, getState){
         return firebase.database().ref('inventarios/'+getState().user.uid).push(item)
             .then(r=>{
-                item['key'] = r.key ;
+                //item['key'] = r.key ;
                 dispatch(addItemsSuccess(item))
+            }).catch(e=>{
+                console.log(e)
             })
     }
 }
 
 export const GET_INVENTARIO_SUCCESS = 'GET_INVENTARIO_SUCCESS';
 
-export function getInventarioSuccess(inventario){
+export function getInventarioSuccess(item){
     return{
-        type:GET_INVENTARIO_SUCCESS, inventario
+        type:GET_INVENTARIO_SUCCESS, item
     }
 }
 export function getInventario(){
     return function(dispatch, getState){
-        return firebase.database().ref('inventario/'+getState().user.uid).on('child_added', function(snap){
+        return firebase.database().ref('inventarios/'+getState().user.uid).on('child_added', snap=>{
             dispatch(getInventarioSuccess(snap.val()))
         })
     }

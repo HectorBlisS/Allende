@@ -6,9 +6,9 @@ export function inventarioreducer(state=[], action){
     switch(action.type){
 
         case GET_INVENTARIO_SUCCESS:
-            return [...state.items, action.item];
+            return [...state, action.item];
         case ADD_ITEMS_SUCCESS:
-            return [...state.items, action.item];
+            return [...state, action.item];
         default:
             return state;
     }

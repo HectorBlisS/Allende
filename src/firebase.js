@@ -11,6 +11,12 @@ const config = {
     firebase.initializeApp(config);
 export default firebase;
 
+
+
+export const secondaryApp = firebase.initializeApp(config, "Secondary");
+
+
+
 export async function registrarTienda(tienda){
     const user = {
             displayName:tienda.responsable,

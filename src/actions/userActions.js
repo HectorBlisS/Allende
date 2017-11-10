@@ -84,9 +84,10 @@ export function actualizarPerfil (user) {
 export function cerrarSesion() {
     return function (dispatch,getState) {
         return firebase.auth().signOut()
-            .then( (r) => {
+            .then((r) => {
                 console.log('Ya sali ', r);
-                toastr.success('vuelveeeeee')
+                toastr.success('vuelveeeeee');
+
                 dispatch(cerrarSesionAction(null));
             }).catch( (error) => {
                 console.error('No pude salir');

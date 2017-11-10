@@ -19,7 +19,7 @@ class LoginContainer extends Component{
     componentWillMount(){
         firebase.auth().onAuthStateChanged(user=>{
             if(user){
-                this.props.history.push("/dasboard");
+                this.props.history.push("/dashboard");
             }
         })
     }
