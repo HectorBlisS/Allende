@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {Drawer, MenuItem, AppBar, Menu} from 'material-ui';
 
 //redux
-import {setTitle, setSlug
+import {setTitle, setSlug, toggleDrawer
 //toggleDrawer
 } from '../../actions/barActions';
 import {bindActionCreators} from 'redux';
@@ -33,20 +33,25 @@ class InventarioPage extends Component {
     };
 
     componentDidMount(){
-        this.setState({
-            title:this.props.title,
-            drawer:this.props.drawer,
-            slug:this.props.slug
-        });
+        this.props.toggleDrawer();
     }
-    componentWillReceiveProps(p){
-        //console.log(p);
-        this.setState({
-            title:p.title,
-            drawer:p.drawer,
-            slug:p.slug
-        });
-    }
+
+    // componentDidMount(){
+    //     this.props.toggleDrawer();
+    //     this.setState({
+    //         title:this.props.title,
+    //         drawer:this.props.drawer,
+    //         slug:this.props.slug
+    //     });
+    // }
+    // componentWillReceiveProps(p){
+    //     //console.log(p);
+    //     this.setState({
+    //         title:p.title,
+    //         drawer:p.drawer,
+    //         slug:p.slug
+    //     });
+    // }
 
     changeRoute = (route) => {
         this.setState({item:route});
@@ -55,7 +60,9 @@ class InventarioPage extends Component {
     };
 
     render() {
-        const {drawer, item} = this.state;
+        const {item} = this.state;
+        const {drawer} = this.props;
+        console.log(this.props);
         //console.log(title);
         //console.log(drawer);
         return (
@@ -95,8 +102,11 @@ function mapDispatchToProps(dispatch, ownProps){
     //console.log(path);
      dispatch(setSlug("admin"));
     return {
-        setTitle:bindActionCreators(setTitle, dispatch)
+        setTitle:bindActionCreators(setTitle, dispatch),
+        toggleDrawer:bindActionCreators(toggleDrawer, dispatch)
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(InventarioPage);
+//export default connect(mapStateToProps, {setTitle})(InventarioPage);
+export default InventarioPage = connect(mapStateToProps, mapDispatchToProps)(InventarioPage);
+

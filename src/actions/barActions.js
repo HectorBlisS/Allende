@@ -40,21 +40,17 @@ function setBarSuccess(bar){
 }
 
 
-export function toggleDrawer(){
-    return function(dispatch, getState){
+export const toggleDrawer = () => (dispatch, getState) => {
         let barObject = getState().bar;
         barObject.drawer = !barObject.drawer;
         //console.log(barObject.drawer);
         dispatch(toggleDrawerSuccess(barObject.drawer));
-    }
-}
+    };
 
-export function setTitle(title){
-    //console.log("llego: ",title);
-    return function(dispatch){
+
+export const setTitle = (title) => (dispatch) => {
         dispatch(setTitleSuccess(title));
-    }
-}
+};
 
 export function setSlug(slug){
     //console.log("llego: ",title);

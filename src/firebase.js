@@ -17,7 +17,7 @@ export async function registrarTienda(tienda){
             email:tienda.email
         };
     //creamos el usuario
-    const r = await firebase.auth().createUserWithEmailAndPassword(tienda.email, tienda.password)
+    const r = await firebase.auth().createUserWithEmailAndPassword(tienda.email, tienda.password);
     tienda["owner"] = r.uid;
     //creamos la tienda
     await firebase.database().ref("tiendas").push(tienda);
