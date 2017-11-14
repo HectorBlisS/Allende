@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import {Dialog, FloatingActionButton, FlatButton} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import DashboardComponent from "../dashboard/DashboardComponent";
-import NewItemForm from "./NewItemForm";
+import NewItemForm from "../admin/NewItemForm";
 import * as inventarioActions from '../../actions/inventarioActions';
 import toastr from 'toastr';
 
