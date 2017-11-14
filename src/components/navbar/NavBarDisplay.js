@@ -4,6 +4,7 @@ import {AppBar, FlatButton, MenuItem, IconMenu, IconButton} from 'material-ui';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import {Link} from 'react-router-dom';
 
+
 const Logged = (props) => (
     <IconMenu
         iconStyle={{color:"white"}}
@@ -25,13 +26,13 @@ const Logged = (props) => (
 );
 
 
-import {AppBar, MenuItem, IconMenu, IconButton} from 'material-ui';
 
-export const NavBarDisplay = ({title, drawer, slug, onMenuClick, userActions}) => {
+export const NavBarDisplay = ({title, drawer, slug, onMenuClick, userActions, logged}) => {
 
     return (
         <div className="transition"  style={drawer ? styles.barOpen:null}>
             <AppBar
+                style={styles.bar}
                 title={title}
                 showMenuIconButton={slug !== "home"}
                 iconElementRight={!logged ? <Logged /> : <FlatButton label="Entrar" />}
@@ -48,6 +49,8 @@ export const NavBarDisplay = ({title, drawer, slug, onMenuClick, userActions}) =
 const styles = {
     barOpen: {
         paddingLeft:"256px"
+    },bar:{
+        backgroundColor:"#424242"
     }
 };
 

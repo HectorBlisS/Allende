@@ -1,4 +1,4 @@
-import firebase from '../firebase';
+import firebase from '../../firebase/firebase';
 
 export const ADD_ITEMS_SUCCESS = 'ADD_ITEMS_SUCCESS';
 

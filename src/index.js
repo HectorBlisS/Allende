@@ -8,16 +8,16 @@ import {MuiThemeProvider} from "material-ui";
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
 //redux
-import {configureStore} from './store/configureStore';
+import {configureStore} from './redux/store/configureStore';
 import {Provider} from 'react-redux';
 
 import 'toastr/build/toastr.css';
-import {getAllDistributors} from "./actions/distributorActions";
-import {comprobarUsuario} from "./actions/userActions";
-import {getInventario} from "./actions/inventarioActions";
+import {getAllDistributors} from "./redux/actions/distributorActions";
+import {comprobarUsuario} from "./redux/actions/userActions";
+import {getInventario} from "./redux/actions/inventarioActions";
 injectTapEventPlugin();
 
-const store = configureStore();
+export const store = configureStore();
 store.dispatch(getAllDistributors());
 store.dispatch(comprobarUsuario());
 

@@ -3,7 +3,7 @@
  */
 import React, {Component} from 'react';
 //import {store} from '../../index';
-import {setBar} from "../../actions/barActions";
+import {setBar} from "../../redux/actions/barActions";
 
 //redux
 import {connect} from 'react-redux';

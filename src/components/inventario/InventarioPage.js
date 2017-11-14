@@ -5,7 +5,7 @@ import {Drawer, MenuItem, AppBar, Menu} from 'material-ui';
 //redux
 import {setTitle, setSlug, toggleDrawer
 //toggleDrawer
-} from '../../actions/barActions';
+} from '../../redux/actions/barActions';
 import {bindActionCreators} from 'redux';
 //material
 import RemoveRedEye from 'material-ui/svg-icons/image/remove-red-eye';
@@ -20,6 +20,7 @@ import Delete from 'material-ui/svg-icons/action/delete';
 import {Route} from 'react-router-dom';
 import Pedidos from './Pedidos';
 import ProductosContainer from "./ProductosContainer";
+import Clientes from './Clientes';
 
 //import {bindActionCreators} from 'redux';
 
@@ -62,7 +63,7 @@ class InventarioPage extends Component {
     render() {
         const {item} = this.state;
         const {drawer} = this.props;
-        console.log(this.props);
+        //console.log(this.props);
         //console.log(title);
         //console.log(drawer);
         return (
@@ -71,15 +72,19 @@ class InventarioPage extends Component {
                     <Route exact path="/inventario" render={()=>(<h2>Tu inventario</h2>)} />
                     <Route path="/inventario/productos" component={ProductosContainer}/>
                     <Route path="/inventario/pedidos" component={Pedidos} />
+                    <Route path="/inventario/clientes" component={Clientes} />
                 </div>
 
 
                 <Drawer open={drawer}>
-                    <AppBar title="Menu" showMenuIconButton={false} />
+                    <AppBar style={{background:"darkgrey"}} title="Menu" showMenuIconButton={false} />
                     <Menu>
-                        <MenuItem style={item === "pedidos" ? {background:"lightgrey"}:null} onClick={()=>this.changeRoute("pedidos")} primaryText="Pedidos" leftIcon={<RemoveRedEye />} />
-                        <MenuItem style={item === "productos" ? {background:"lightgrey"}:null}  onClick={()=>this.changeRoute("productos")} primaryText="Inventario" leftIcon={<PersonAdd />} />
-                        <MenuItem primaryText="Clientes" leftIcon={<ContentLink />} />
+                        <MenuItem style={item === "pedidos" ? {background:"lightgrey"}:null} onClick={()=>this.changeRoute("pedidos")} primaryText="Pedidos" leftIcon={<ContentLink />} />
+                        <MenuItem style={item === "productos" ? {background:"lightgrey"}:null}  onClick={()=>this.changeRoute("productos")} primaryText="Inventario" leftIcon={<RemoveRedEye />} />
+                        <MenuItem
+                            style={item === "clientes" ? {background:"lightgrey"}:null}
+                            onClick={()=>this.changeRoute("clientes")}
+                            primaryText="Clientes" leftIcon={<PersonAdd />} />
                         <Divider />
                         <MenuItem primaryText="Dashboard" leftIcon={<ContentCopy />} />
                         <MenuItem primaryText="Solcitar producto" leftIcon={<Download />} />

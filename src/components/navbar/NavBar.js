@@ -2,8 +2,8 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {NavBarDisplay} from './NavBarDisplay';
 import {withRouter} from 'react-router-dom';
-import {toggleDrawer} from '../../actions/barActions';
-import * as userActions from '../../actions/userActions';
+import {toggleDrawer} from '../../redux/actions/barActions';
+import * as userActions from '../../redux/actions/userActions';
 
 function mapStateToProps(state, ownProps) {
 

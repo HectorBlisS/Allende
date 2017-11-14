@@ -3,7 +3,7 @@ import {barReducer} from "./barReducer";
 import {distributorReducer} from "./distributorReducer";
 import {userReducer} from "./userReducer";
 import {inventarioreducer} from "./inventarioReducer";
-
+import {clientsReducer} from "./clientsReducer";
 
 
 function mientrasReducer(state="", action){
@@ -18,5 +18,6 @@ export const rootReducer = combineReducers({
     bar:barReducer,
     distributors:distributorReducer,
     user:userReducer,
-    inventario:inventarioreducer
+    inventario:inventarioreducer,
+    clients:clientsReducer
 });

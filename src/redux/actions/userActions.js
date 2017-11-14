@@ -1,8 +1,8 @@
-import firebase from '../firebase';
+import firebase from '../../firebase/firebase';
 import toastr from 'toastr';
 import {getInventario} from "./inventarioActions";
 //import alertify from 'alertify.js';
-
+const distributorsDb = firebase.database().ref("distributors");
 
 export function iniciarSesionAction(usuario) {
     return {type:"INICIAR_SESION" , usuario};
@@ -29,7 +29,11 @@ export function iniciarSesion(email, password) {
         return firebase.auth()
             .signInWithEmailAndPassword(email, password)
             .then((u) => {
-                dispatch(iniciarSesionAction(u));
+                distributorsDb.child(u.uid).on("value", s=>{
+                    u["profile"] = s.val();
+                    dispatch(iniciarSesionAction(u));
+                });
+
             })
             .catch((error) => {
                 const errorCode = error.code;

@@ -1,4 +1,4 @@
-import firebase, {secondaryApp} from '../firebase';
+import firebase, {secondaryApp} from '../../firebase/firebase';
 
 
 
