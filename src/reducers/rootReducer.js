@@ -3,6 +3,7 @@ import {barReducer} from "./barReducer";
 import {distributorReducer} from "./distributorReducer";
 import {userReducer} from "./userReducer";
 import {inventarioreducer} from "./inventarioReducer";
+import {productsReducer} from "./productsReducer";
 
 
 
@@ -18,5 +19,6 @@ export const rootReducer = combineReducers({
     bar:barReducer,
     distributors:distributorReducer,
     user:userReducer,
-    inventario:inventarioreducer
+    inventario:inventarioreducer,
+    products:productsReducer
 });
