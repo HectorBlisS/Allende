@@ -1,5 +1,7 @@
 @import "./components/login/login.css";
 @import "./components/inventario/inventario.css";
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
 
 .drawer-open{
   padding-left: 256px;

@@ -12,10 +12,15 @@ import {configureStore} from './store/configureStore';
 import {Provider} from 'react-redux';
 
 import 'toastr/build/toastr.css';
+import {getAllDistributors} from "./actions/distributorActions";
+import {comprobarUsuario} from "./actions/userActions";
+import {getInventario} from "./actions/inventarioActions";
 injectTapEventPlugin();
 
+const store = configureStore();
+store.dispatch(getAllDistributors());
+store.dispatch(comprobarUsuario());
 
-export const store = configureStore();
 
 const WithRouter =()=>(
   <BrowserRouter>

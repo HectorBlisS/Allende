@@ -5,6 +5,10 @@ import LoginContainer from "./components/login/LoginContainer";
 import RegistroContainer from './components/login/RegistroContainer';
 import CajaComponent from "./components/caja/CajaComponent";
 import HomePage from './components/home/HomePage';
+import {Admin} from './components/admin/Admin';
+import {AdminDistribuitorDetail} from './components/admin/AdminDistribuitorDetail';
+import DistributorDashboard from './components/distributor/DistributorDashboard';
+
 
 
 const Routes = () => (
@@ -12,8 +16,11 @@ const Routes = () => (
         <Route exact path="/" component={HomePage} />
         <Route path="/inventario" component={InventarioPage}/>
         <Route path="/login" component={LoginContainer}/>
-        <Route path="/registro" component={RegistroContainer}/>
+        {/*<Route path="/registro" component={RegistroContainer}/>*/}
+        <Route path="/dashboard" component={DistributorDashboard}/>
         <Route path="/caja" component={CajaComponent}/>
+        <Route exact path="/admin" component={Admin}/>
+        <Route path="/admin/distributors/:id" component={AdminDistribuitorDetail}/>
     </Switch>
 );
 

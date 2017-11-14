@@ -1,0 +1,14 @@
+/*button to open the new distributor form*/
+.add-distributor-button{
+    position: fixed;
+    bottom: 20px;
+    right:20px;
+}
+
+.distributors-table-container{
+    padding: 2%;
+}
+
+.element-distributor-form{
+    margin: 10px 20px;
+}

@@ -1,7 +1,5 @@
-/**
- * Created by BlisS on 22/03/17.
- */
 import React from 'react';
+
 import {AppBar, FlatButton, MenuItem, IconMenu, IconButton} from 'material-ui';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import {Link} from 'react-router-dom';
@@ -26,15 +24,18 @@ const Logged = (props) => (
     </IconMenu>
 );
 
-export const NavBarDisplay = ({logged, title, drawer, slug, onMenuClick}) => {
-    //console.log(slug);
+
+import {AppBar, MenuItem, IconMenu, IconButton} from 'material-ui';
+
+export const NavBarDisplay = ({title, drawer, slug, onMenuClick, userActions}) => {
+
     return (
         <div className="transition"  style={drawer ? styles.barOpen:null}>
             <AppBar
                 title={title}
                 showMenuIconButton={slug !== "home"}
-                onLeftIconButtonTouchTap={onMenuClick}
                 iconElementRight={!logged ? <Logged /> : <FlatButton label="Entrar" />}
+                onLeftIconButtonTouchTap={onMenuClick}
             />
 
 

@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import {LoginDisplay} from './LoginDisplay';
 import firebase from '../../firebase';
 import toastr from 'toastr';
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import * as userActions from '../../actions/userActions';
 
 class LoginContainer extends Component{
 
@@ -16,7 +19,7 @@ class LoginContainer extends Component{
     componentWillMount(){
         firebase.auth().onAuthStateChanged(user=>{
             if(user){
-                this.props.history.push("/inventario");
+                this.props.history.push("/dashboard");
             }
         })
     }
@@ -30,12 +33,12 @@ class LoginContainer extends Component{
     };
 
     onLogin = () => {
-        const auth = this.state.auth
+        const auth = this.state.auth;
         this.setState({loading:true});
-        firebase.auth().signInWithEmailAndPassword(auth.email, auth.password)
+        this.props.userActions.iniciarSesion(auth.email, auth.password)
             .then(()=>{
                 toastr.success("Bienvenido");
-                this.props.history.push("/inventario");
+                this.props.history.push("/dashboard");
             })
             .catch(e=>{
                 console.log(e);
@@ -57,4 +60,17 @@ class LoginContainer extends Component{
     }
 }
 
+function mapStateToProps(state){
+    return{
+
+    }
+}
+function mapDispatchToProps(dispatch, getState){
+    return{
+        userActions:bindActionCreators(userActions, dispatch)
+    }
+}
+
+
+LoginContainer = connect(mapStateToProps, mapDispatchToProps)(LoginContainer);
 export default LoginContainer;

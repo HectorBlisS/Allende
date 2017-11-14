@@ -1,15 +1,21 @@
 import * as firebase from 'firebase';
 
 const config = {
-    apiKey: "AIzaSyBcaQr-uMH7LQcFETQLiXk5LQ1WuG9nrwY",
-    authDomain: "togomx-d4928.firebaseapp.com",
-    databaseURL: "https://togomx-d4928.firebaseio.com",
-    projectId: "togomx-d4928",
-    storageBucket: "togomx-d4928.appspot.com",
-    messagingSenderId: "87733822528"
+    apiKey: "AIzaSyAEggDZlKI8w67e_cPG7hFAVKAjvvY9Fqk",
+    authDomain: "cerveceriaallende-56478.firebaseapp.com",
+    databaseURL: "https://cerveceriaallende-56478.firebaseio.com",
+    projectId: "cerveceriaallende-56478",
+    storageBucket: "cerveceriaallende-56478.appspot.com",
+    messagingSenderId: "443694211752"
 };
-firebase.initializeApp(config);
+    firebase.initializeApp(config);
 export default firebase;
+
+
+
+export const secondaryApp = firebase.initializeApp(config, "Secondary");
+
+
 
 export async function registrarTienda(tienda){
     const user = {
