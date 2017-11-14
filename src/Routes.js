@@ -7,6 +7,7 @@ import CajaComponent from "./components/caja/CajaComponent";
 import {Admin} from './components/admin/Admin';
 import {AdminDistribuitorDetail} from './components/admin/AdminDistribuitorDetail';
 import DistributorDashboard from './components/distributor/DistributorDashboard';
+import ChangePasswordPage from "./components/changePassword/ChangePasswordPage";
 
 
 
@@ -19,6 +20,7 @@ const Routes = () => (
         <Route path="/caja" component={CajaComponent}/>
         <Route exact path="/admin" component={Admin}/>
         <Route path="/admin/distributors/:id" component={AdminDistribuitorDetail}/>
+        <Route path="/changePassword" component={ChangePasswordPage}/>
     </Switch>
 );
 
