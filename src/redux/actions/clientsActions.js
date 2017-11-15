@@ -22,8 +22,13 @@ export function removeClientWatched(key){
 }
 
 export const saveClient = (client) => (dispatch, getState) => {
+    let clientKey;
+    if(client.id)
+        clientKey = client.id;
+    else
+        clientKey = db.child('clients').push().key;
+
     const userId = getState().user.uid;
-    const clientKey = db.child('clients').push().key;
     client["id"] = clientKey;
     const newData = {
         [`distributors/${userId}/clients/${clientKey}`]: true,
@@ -34,7 +39,7 @@ export const saveClient = (client) => (dispatch, getState) => {
         return Promise.resolve();
         })
         .catch(e=>{
-        console.log(e)
+        console.log(e);
         return Promise.reject(e.message);
         });
 };
