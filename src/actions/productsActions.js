@@ -29,6 +29,7 @@ export function getAllProductsSuccess(product){
 export function getAllProducts(){
     return function(dispatch, getState){
         return firebase.database().ref('products').on('child_added', snap=>{
+            console.log(snap.val())
             let product = snap.val();
             product['key'] = snap.key;
             dispatch(getAllProductsSuccess(product))

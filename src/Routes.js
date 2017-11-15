@@ -20,7 +20,7 @@ const Routes = () => (
         <Route path="/caja" component={CajaComponent}/>
         <Route exact path="/admin" component={AdminContainer}/>
         <Route path="/admin/distributors/:id" component={AdminDistribuitorDetail}/>
-            <Route path="/admin/inventario" component={InventarioAdmin}/>
+            <Route  exact path="/admin/inventario" component={InventarioAdmin}/>
     </Switch>
 );
 
