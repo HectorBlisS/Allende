@@ -1,11 +1,11 @@
 import React, {Component} from 'react';
 import {LoginDisplay} from './LoginDisplay';
-import firebase from '../../firebase';
+import firebase from '../../firebase/firebase';
 import toastr from 'toastr';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import * as userActions from '../../actions/userActions';
-
+import * as userActions from '../../redux/actions/userActions';
+const distributorsDb = firebase.database().ref("distributors");
 class LoginContainer extends Component{
 
     state = {
@@ -13,16 +13,51 @@ class LoginContainer extends Component{
         auth:{
             email:'',
             password:''
-        }
+        },
+        profile:{}
     };
 
     componentWillMount(){
         firebase.auth().onAuthStateChanged(user=>{
             if(user){
-                this.props.history.push("/dashboard");
+                distributorsDb.child(user.uid).on("value", s=>{
+                    let {profile} = this.state;
+                    profile = s.val();
+                    this.setState({profile}, () => {
+                        if(profile.just_created){
+                            this.props.history.push('/changePassword');
+                        }else {
+                            this.decideRoute();
+                        }
+
+                    } );
+
+                });
+
             }
         })
     }
+
+    decideRoute = () => {
+        const search = this.props.location.search;
+        if(search){
+            const params = new URLSearchParams(search);
+            const next = params.get('next');
+            if(next){
+                this.routeNext(next);
+            }
+        } else{
+            this.routeNatural();
+        }
+    };
+
+    routeNext = (next) => {
+        this.props.history.push(next);
+    };
+
+    routeNatural = () => {
+        this.props.history.push('/dashboard');
+    };
 
     onChange = (e) => {
         const field = e.target.name;
@@ -38,7 +73,7 @@ class LoginContainer extends Component{
         this.props.userActions.iniciarSesion(auth.email, auth.password)
             .then(()=>{
                 toastr.success("Bienvenido");
-                this.props.history.push("/dashboard");
+                this.decideRoute();
             })
             .catch(e=>{
                 console.log(e);

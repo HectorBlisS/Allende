@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import * as distributorActions from '../../actions/distributorActions';
+import * as distributorActions from '../../redux/actions/distributorActions';
 
 //components
 import './admin.css';

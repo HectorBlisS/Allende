@@ -5,9 +5,9 @@ import {Dialog, FloatingActionButton, FlatButton} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import DashboardComponent from "../dashboard/DashboardComponent";
 import NewItemForm from "./NewItemForm";
-import * as productsActions from '../../actions/productsActions';
+import * as productsActions from '../../redux/actions/productsActions';
 import toastr from 'toastr';
-import firebase from '../../firebase';
+import firebase from '../../firebase/firebase';
 import ProductsList from './ProductsList';
 
 
@@ -76,7 +76,7 @@ class InventarioAdmin extends Component {
         return (
             <div>
                     <div>
-                        <ProductsList products={this.props.products}/>
+                        <ProductsList products={this.props.products} fetched={this.props.fetched}/>
                         <Dialog
                             title="Agrega un Nuevo Producto"
                             autoScrollBodyContent
@@ -104,10 +104,11 @@ class InventarioAdmin extends Component {
 
 
 function mapStateToProps(state, ownProps) {
-
+    console.log(state)
     return{
 
         products:state.products,
+        fetched:state.products!==undefined
 
 
     }

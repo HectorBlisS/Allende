@@ -1,4 +1,4 @@
-import {GET_ALL_PRODUCTS_SUCCESS, NEW_PRODUCT_SUCCESS} from "../actions/productsActions";
+import {GET_ALL_PRODUCTS_SUCCESS, NEW_PRODUCT_SUCCESS} from "../redux/actions/productsActions";
 
 export function productsReducer(state=[], action){
     switch(action.type){

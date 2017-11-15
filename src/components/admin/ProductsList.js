@@ -3,7 +3,11 @@ import {GridList, GridTile} from 'material-ui';
 import {ProductCard} from "./ProductCard";
 import './beer-card.css';
 
-const ProductsList = ({products}) => {
+const ProductsList = ({products, fetched}) => {
+    if(!fetched){
+        return <p>loading</p>
+    }
+
     return (
         <div className="lista-cards">
             {products.map((p, key)=>{
