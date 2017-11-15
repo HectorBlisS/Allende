@@ -2,10 +2,9 @@ import React, {Component} from 'react';
 import './ChangePasswordStyles.css'
 import ChangePasswordDisplay from "./ChangePasswordDisplay";
 import toastr from 'toastr';
-import firebase from '../../firebase';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import * as userActions from '../../actions/userActions';
+import * as userActions from '../../redux/actions/userActions';
 
 class ChangePasswordPage extends Component {
     constructor(props) {
@@ -19,10 +18,6 @@ class ChangePasswordPage extends Component {
                 passwordConfirm: false
             }
         };
-    }
-
-    componentWillMount(){
-        console.info(this.props.user);
     }
 
     changeCredentialFields = (e) => {
@@ -57,6 +52,7 @@ class ChangePasswordPage extends Component {
 
     render() {
         const {credential, error} = this.state;
+        console.info(this.props);
         return (
             <div>
                 <ChangePasswordDisplay
