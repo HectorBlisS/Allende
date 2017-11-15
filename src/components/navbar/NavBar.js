@@ -11,7 +11,8 @@ function mapStateToProps(state, ownProps) {
    // return {...state.bar};
     return {
         bar:state.bar,
-        user:state.user
+        user:state.user,
+        history: ownProps.history
     };
 }
 
