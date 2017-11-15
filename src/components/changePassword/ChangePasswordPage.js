@@ -39,15 +39,23 @@ class ChangePasswordPage extends Component {
     };
 
     updatePassword = () => {
-        const {credential} = this.state;
-        this.props.userActions.updatePassword(credential.password)
-            .then( r => {
-                toastr.success('Se ha actualizado correctamente');
-                this.props.history.push('/dashboard')
-            })
-            .catch( e => {
-                toastr.error('Something wrong' + e.message);
-            });
+        const {credential, error} = this.state;
+        if(credential.password.length > 6) {
+            if (!error.passwordConfirm) {
+                this.props.userActions.updatePassword(credential.password)
+                    .then(r => {
+                        toastr.success('Se ha actualizado correctamente');
+                        this.props.history.push('/dashboard')
+                    })
+                    .catch(e => {
+                        toastr.error('Something wrong' + e.message);
+                    });
+            } else {
+                toastr.error('La contraseña no coincide');
+            }
+        }else{
+            toastr.error('La contraseña debe ser mayor a 6 caracteres');
+        }
     };
 
     render() {
