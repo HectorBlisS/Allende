@@ -12,7 +12,7 @@ exports.sendTemplateMail = functions.https.onRequest((req, res)=>{
 exports.sendWelcomeAndPass = functions.database.ref("/distributors/{pushId}/email")
 	.onWrite(event => {
 		const email = event.data.val();
-		const password = "putostodos"
+		const password = "cerveceriaAllende"
 		//return event.data.ref.parent.child("uppercase").set(uppercase);
 		var transporter = nodemailer.createTransport({
 		//service:"Gmail",

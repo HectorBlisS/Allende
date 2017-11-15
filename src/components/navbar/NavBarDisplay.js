@@ -16,6 +16,7 @@ const Logged = (props) => (
         targetOrigin={{horizontal: 'right', vertical: 'top'}}
         anchorOrigin={{horizontal: 'right', vertical: 'top'}}
     >
+        <MenuItem containerElement={ <Link style={{textDecoration:"none"}} to="/admin"/>} primaryText="Admin"/>
         <Link style={{textDecoration:"none"}} to="/dashboard">
         <MenuItem primaryText="Dashboard" />
         </Link>
@@ -28,7 +29,7 @@ const Logged = (props) => (
 
 
 
-export const NavBarDisplay = ({title, drawer, slug, onMenuClick, userActions, logged, history}) => {
+export const NavBarDisplay = ({title, drawer, menu=false, onMenuClick, userActions, logged, history}) => {
     const logout = () => {
         userActions.cerrarSesion()
             .then( r => {
@@ -47,7 +48,7 @@ export const NavBarDisplay = ({title, drawer, slug, onMenuClick, userActions, lo
             <AppBar
                 style={styles.bar}
                 title={title}
-                showMenuIconButton={slug !== "home"}
+                showMenuIconButton={menu}
                 iconElementRight={!logged ? <Logged logout={logout}/> : <FlatButton label="Entrar" />}
                 onLeftIconButtonTouchTap={onMenuClick}
             />
