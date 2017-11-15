@@ -1,5 +1,5 @@
 import React from 'react';
-
+import firebase from '../../firebase/firebase';
 import {AppBar, FlatButton, MenuItem, IconMenu, IconButton} from 'material-ui';
 import MoreVertIcon from 'material-ui/svg-icons/navigation/more-vert';
 import {Link} from 'react-router-dom';
@@ -16,8 +16,8 @@ const Logged = (props) => (
         targetOrigin={{horizontal: 'right', vertical: 'top'}}
         anchorOrigin={{horizontal: 'right', vertical: 'top'}}
     >
-        <Link style={{textDecoration:"none"}} to="/">
-        <MenuItem primaryText="Inicio" />
+        <Link style={{textDecoration:"none"}} to="/dashboard">
+        <MenuItem primaryText="Dashboard" />
         </Link>
         <Link style={{textDecoration:"none"}} to="/inventario">
             <MenuItem primaryText="Inventario" />
@@ -32,13 +32,16 @@ export const NavBarDisplay = ({title, drawer, slug, onMenuClick, userActions, lo
     const logout = () => {
         userActions.cerrarSesion()
             .then( r => {
-                toastr.success('See ya');
-                history.push('/');
+                //toastr.success('See ya');
+                history.push('/login');
             })
             .catch( e => {
                 toastr.error(e.message)
             });
     };
+
+
+
     return (
         <div className="transition"  style={drawer ? styles.barOpen:null}>
             <AppBar
