@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {Drawer, MenuItem, AppBar, Menu} from 'material-ui';
+import firebase from '../../firebase/firebase';
 
 //redux
 import {setTitle, setSlug, toggleDrawer
@@ -32,6 +33,12 @@ class InventarioPage extends Component {
       slug:"",
         item:""
     };
+
+    componentWillMount(){
+        firebase.auth().onAuthStateChanged(user=>{
+           if(!user) this.props.history.push("/login?next=/inventario");
+        });
+    }
 
     componentDidMount(){
         this.props.toggleDrawer();

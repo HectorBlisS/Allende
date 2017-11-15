@@ -19,10 +19,31 @@ class LoginContainer extends Component{
     componentWillMount(){
         firebase.auth().onAuthStateChanged(user=>{
             if(user){
-                this.props.history.push("/dashboard");
+                this.decideRoute();
             }
         })
     }
+
+    decideRoute = () => {
+        const search = this.props.location.search;
+        if(search){
+            const params = new URLSearchParams(search);
+            const next = params.get('next');
+            if(next){
+                this.routeNext(next);
+            }
+        } else{
+            this.routeNatural();
+        }
+    };
+
+    routeNext = (next) => {
+        this.props.history.push(next);
+    };
+
+    routeNatural = () => {
+        this.props.history.push('/dashboard');
+    };
 
     onChange = (e) => {
         const field = e.target.name;
@@ -38,7 +59,7 @@ class LoginContainer extends Component{
         this.props.userActions.iniciarSesion(auth.email, auth.password)
             .then(()=>{
                 toastr.success("Bienvenido");
-                this.props.history.push("/dashboard");
+                this.decideRoute();
             })
             .catch(e=>{
                 console.log(e);

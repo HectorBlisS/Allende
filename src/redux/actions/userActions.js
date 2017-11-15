@@ -33,6 +33,7 @@ export function iniciarSesion(email, password) {
                 distributorsDb.child(u.uid).on("value", s=>{
                     u["profile"] = s.val();
                     dispatch(iniciarSesionAction(u));
+                    return Promise.resolve();
                 });
 
             })
@@ -44,7 +45,7 @@ export function iniciarSesion(email, password) {
                 } else if (errorCode === 'auth/wrong-password') {
                     errorMessage = 'La contraseña es inválida';
                 }
-
+                return Promise.reject(error.message);
                 console.log('Algo estuvo mal ',error );
             });
 
