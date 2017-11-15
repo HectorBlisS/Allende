@@ -13,14 +13,20 @@ import firebase from '../../firebase/firebase';
 import {saveClient, removeClient} from "../../redux/actions/clientsActions";
 
 
-const RowTable = ({key, id, name, rfc, description, ...otherProps}) => (
-    <TableRow {...otherProps}>
+const RowTable = ({onEdit, key, id, name, rfc, description, ...otherProps}) => (
+    <TableRow
+        {...otherProps}>
         {otherProps.children[0]}
         <TableRowColumn>{id}</TableRowColumn>
         <TableRowColumn>{name}</TableRowColumn>
         <TableRowColumn>{rfc}</TableRowColumn>
         <TableRowColumn>{description}</TableRowColumn>
-        <TableRowColumn>Editar</TableRowColumn>
+        <TableHeaderColumn>
+            <RaisedButton
+                onClick={()=>onEdit(id)}
+                label="Editar"
+            />
+        </TableHeaderColumn>
     </TableRow>
 );
 
@@ -48,6 +54,12 @@ class Clientes extends Component {
 
     handleOpenForm = () => {
       this.setState({openForm:!this.state.openForm});
+    };
+
+    setNewClient = () => {
+        let client={name:'',rfc:'',description:''};
+        this.setState({client});
+        this.handleOpenForm();
     };
 
     onChangeForm = (e) => {
@@ -81,7 +93,11 @@ class Clientes extends Component {
             .catch(()=>toastr.error("fallé"));
     };
 
-    onEditClient = (client) => {};
+    onEditClient = (id) => {
+        const client = this.state.clientes.find(c=>c.id === id);
+        //console.log(client);
+        this.setState({client, openForm:true});
+    };
 
     onRemoveClient = () => {};
 
@@ -93,7 +109,9 @@ class Clientes extends Component {
         return (
             <div>
                 <h2>Tus clientes</h2>
-                <Table style={styles.body} bodyStyle={styles.body}>
+                <Table
+                    selectable={false}
+                    style={styles.body} bodyStyle={styles.body}>
                     <TableHeader
                         style={styles.header}
                     >
@@ -102,18 +120,18 @@ class Clientes extends Component {
                             <TableHeaderColumn>Nombre</TableHeaderColumn>
                             <TableHeaderColumn>RFC</TableHeaderColumn>
                             <TableHeaderColumn>Descripción</TableHeaderColumn>
-                            <TableHeaderColumn>Editar</TableHeaderColumn>
+                            <TableHeaderColumn>Edición</TableHeaderColumn>
                         </TableRow>
                     </TableHeader>
                     <TableBody>
-                        {clientes.map((c,i)=><RowTable key={i} {...c} />)}
+                        {clientes.map((c,i)=><RowTable onEdit={this.onEditClient} key={i} {...c} />)}
                     </TableBody> :
 
 
                 </Table>
 
                 <FloatingActionButton
-                    onClick={this.handleOpenForm}
+                    onClick={this.setNewClient}
                     backgroundColor="#424242"
                     style={styles.button}>
                     <ContentAdd />
@@ -160,6 +178,12 @@ class Clientes extends Component {
                             backgroundColor="#424242"
                             label="Guardar"
                             type="submit"/>
+                        <RaisedButton
+                            labelColor="#FFF"
+                            backgroundColor="#999"
+                            label="Cancelar"
+                            onClick={this.handleOpenForm}
+                            />
                     </form>
 
                 </Dialog>
@@ -189,7 +213,7 @@ const styles = {
         display:"flex",
         flexWrap:"wrap",
         alignItems:"flex-end",
-        justifyContent:"center"
+        justifyContent:"space-around"
     }
 };
 
