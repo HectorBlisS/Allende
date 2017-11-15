@@ -7,7 +7,7 @@ function myClients(state=[], action){
             let list = state.filter(i=>i.id !== action.client.id);
             return [action.client, ...list];
         case REMOVE_CLIENT_SUCCESS:
-            return [...state.filter(c=>c.id !== action.id)];
+            return [...state.filter(c=>c.id !== action.key)];
         default:
             return state;
     }

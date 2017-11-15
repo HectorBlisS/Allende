@@ -36,11 +36,13 @@ class keyPathWatcher{
     }
 
     onChildRemoved(snap){
+        console.log(snap.key);
         let key = snap.key;
         this.actions.remove(key);
     }
 
     executeAction(snap){
+        if(!snap.val()) return this.onChildRemoved(snap);
         let item = snap.val();
         //item["key"] = this.key;
         this.actions.upsert(item);

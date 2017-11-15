@@ -57,7 +57,7 @@ class Clientes extends Component {
     };
 
     setNewClient = () => {
-        let client={name:'',rfc:'',description:''};
+        let client={name:'',rfc:'',description:'', nuevo:true};
         this.setState({client});
         this.handleOpenForm();
     };
@@ -85,12 +85,15 @@ class Clientes extends Component {
     onSubmitClient = (e) => {
         e.preventDefault();
         //validacion
-        if (this.validateForm()) this.props.saveClient(this.state.client)
-            .then(()=>{
-            toastr.success("se guardó");
-            this.setState({openForm:false});
-            })
-            .catch(()=>toastr.error("fallé"));
+        if (this.validateForm()) {
+            delete this.state.client["nuevo"];
+            this.props.saveClient(this.state.client)
+                .then(()=>{
+                    toastr.success("se guardó");
+                    this.setState({openForm:false});
+                })
+                .catch(()=>toastr.error("fallé"));
+        }
     };
 
     onEditClient = (id) => {
@@ -99,7 +102,15 @@ class Clientes extends Component {
         this.setState({client, openForm:true});
     };
 
-    onRemoveClient = () => {};
+    onRemoveClient = () => {
+        let client = this.state.client;
+        if(window.confirm("Seguro que deceas borrar a ",client.name)){
+            this.props.removeClient(client)
+                .then(()=>toastr.warning("Se ha borrado a ", client.name))
+                .catch(e=>toastr.error(e));
+        }
+        this.setState({openForm:false});
+    };
 
     render() {
         const {clientes} = this.state;
@@ -184,6 +195,14 @@ class Clientes extends Component {
                             label="Cancelar"
                             onClick={this.handleOpenForm}
                             />
+                        {!this.state.client.nuevo &&
+                        <RaisedButton
+                            labelColor="#FFF"
+                            backgroundColor="red"
+                            label="Borrar"
+                            onClick={this.onRemoveClient}
+                        />
+                        }
                     </form>
 
                 </Dialog>
