@@ -105,12 +105,22 @@ export function comprobarUsuario(){
     return function (dispatch, getState) {
         return firebase.auth().onAuthStateChanged((u) => {
             if(u){
-                dispatch(comprobarUsuarioAction(u));
+                distributorsDb.child(u.uid).on("value", s=>{
+                    u["profile"] = s.val();
+                    dispatch(comprobarUsuarioAction(u));
+                });
                 //dispatch(getAllProducts());
 
             }else{
 
             }
         });
+    }
+}
+
+export function updatePassword(newPassword) {
+    return function (dispatch, getState) {
+        const {user} = getState();
+        return user.updatePassword(newPassword);
     }
 }
