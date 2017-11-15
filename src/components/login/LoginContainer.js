@@ -5,7 +5,7 @@ import toastr from 'toastr';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as userActions from '../../redux/actions/userActions';
-
+const distributorsDb = firebase.database().ref("distributors");
 class LoginContainer extends Component{
 
     state = {
@@ -13,13 +13,27 @@ class LoginContainer extends Component{
         auth:{
             email:'',
             password:''
-        }
+        },
+        profile:{}
     };
 
     componentWillMount(){
         firebase.auth().onAuthStateChanged(user=>{
             if(user){
-                this.decideRoute();
+                distributorsDb.child(user.uid).on("value", s=>{
+                    let {profile} = this.state;
+                    profile = s.val();
+                    this.setState({profile}, () => {
+                        if(profile.just_created){
+                            this.props.history.push('/changePassword');
+                        }else {
+                            this.decideRoute();
+                        }
+
+                    } );
+
+                });
+
             }
         })
     }
