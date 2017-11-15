@@ -1,4 +1,4 @@
-import firebase from '../firebase';
+import firebase from '../../firebase/firebase';
 
 export const NEW_PRODUCT_SUCCESS =  'NEW_PRODUCT_SUCCESS';
 

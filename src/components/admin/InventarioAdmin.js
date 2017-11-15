@@ -5,9 +5,9 @@ import {Dialog, FloatingActionButton, FlatButton} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import DashboardComponent from "../dashboard/DashboardComponent";
 import NewItemForm from "./NewItemForm";
-import * as productsActions from '../../actions/productsActions';
+import * as productsActions from '../../redux/actions/productsActions';
 import toastr from 'toastr';
-import firebase from '../../firebase';
+import firebase from '../../firebase/firebase';
 import ProductsList from './ProductsList';
 
 
