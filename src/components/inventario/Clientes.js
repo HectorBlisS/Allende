@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
+//import {bindActionCreators} from 'redux';
 import {
         FloatingActionButton, RaisedButton,
         Dialog, Subheader, TextField, CircularProgress,
@@ -9,7 +9,7 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import toastr from 'toastr';
 //redux
 import {clientWatcher} from "../../firebase/watchers";
-import firebase from '../../firebase/firebase';
+//import firebase from '../../firebase/firebase';
 import {saveClient, removeClient} from "../../redux/actions/clientsActions";
 
 
@@ -44,11 +44,11 @@ class Clientes extends Component {
     }
 
     componentDidMount(){
-        const {clientes} = this.props;
+        const clientes = this.props.clientes;
         this.setState({clientes});
     }
     componentWillReceiveProps(props){
-        const {clientes} = props;
+        const clientes = props.clientes;
         this.setState({clientes});
     }
 
@@ -63,7 +63,7 @@ class Clientes extends Component {
     };
 
     onChangeForm = (e) => {
-        let client = this.state.client;
+        let client = {...this.state.client};
         const field = e.target.name;
         const value = e.target.value;
         client[field] = value;
@@ -101,6 +101,8 @@ class Clientes extends Component {
         //console.log(client);
         this.setState({client, openForm:true});
     };
+
+
 
     onRemoveClient = () => {
         let client = this.state.client;
