@@ -1,0 +1,28 @@
+.productos-container{
+    width: 80%;
+    margin: 0 auto;
+}
+
+.productos-form{
+}
+
+.productos-wrapper{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.row-paper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+
+@media(max-width: 600px){
+    .productos-container{
+        width: 100%;
+    }
+}

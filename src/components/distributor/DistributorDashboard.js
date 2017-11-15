@@ -4,8 +4,9 @@ import {bindActionCreators} from 'redux';
 import {Dialog, FloatingActionButton, FlatButton} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import DashboardComponent from "../dashboard/DashboardComponent";
-import NewItemForm from "../admin/NewItemForm";
-import * as inventarioActions from '../../actions/inventarioActions';
+//import NewItemForm from "./NewItemForm";
+import * as inventarioActions from '../../redux/actions/inventarioActions';
+
 import toastr from 'toastr';
 
 class DistributorDashboard extends Component {
@@ -53,9 +54,9 @@ class DistributorDashboard extends Component {
 
         return (
             <div>
-                {this.props.fetched&&this.props.fetched2?
+
                     <div>
-                        <DashboardComponent distributor={this.props.distributor}/>
+                        <DashboardComponent {...this.props.distributor}/>
                         <Dialog
                             title="Dialog With Actions"
                             actions={actions}
@@ -63,13 +64,13 @@ class DistributorDashboard extends Component {
                             contentStyle={{width:'30%'}}
                             open={this.state.open}
                             onRequestClose={this.handleClose}>
-                            <NewItemForm onChangeText={this.onChangeText}/>
+                            {/*<NewItemForm onChangeText={this.onChangeText}/>*/}
                         </Dialog>
                         <FloatingActionButton onTouchTap={this.handleOpen}>
                             <ContentAdd />
                         </FloatingActionButton>
                     </div>:
-                    <p>loading</p>}
+                    <p>loading</p>
             </div>
         );
     }
@@ -78,13 +79,13 @@ class DistributorDashboard extends Component {
 
 function mapStateToProps(state, ownProps) {
      let distributor = state.distributors.filter(d=>{
-         return d.key === state.user.uid
+         //return d.key === state.user.uid
      });
     return{
-        distributor:distributor[0],
-        fetched:distributor[0]!==undefined,
-        fetched2:state.user!==undefined,
-        inventario:state.inventario,
+        //distributor:distributor[0],
+        //fetched:distributor[0]!==undefined,
+        //fetched2:state.user!==undefined,
+        //inventario:state.inventario,
 
 
     }

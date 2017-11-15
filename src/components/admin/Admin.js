@@ -1,7 +1,7 @@
 //redux
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import * as distributorActions from '../../actions/distributorActions';
+import * as distributorActions from '../../redux/actions/distributorActions';
 import AdminContainer from "./AdminContainer";
 
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {RegistroDisplay} from "./RegistroDisplay";
-import {registrarTienda} from '../../firebase';
+import {registrarTienda} from '../../firebase/firebase';
 import toastr from 'toastr';
 
 

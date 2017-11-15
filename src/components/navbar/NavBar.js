@@ -2,18 +2,22 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {NavBarDisplay} from './NavBarDisplay';
 import {withRouter} from 'react-router-dom';
-import {toggleDrawer} from '../../actions/barActions';
-import * as userActions from '../../actions/userActions';
+import {toggleDrawer} from '../../redux/actions/barActions';
+import * as userActions from '../../redux/actions/userActions';
 
 function mapStateToProps(state, ownProps) {
-    console.log(state);
+
+    //console.log(state);
+   // return {...state.bar};
     return {
         bar:state.bar,
         user:state.user
     };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, ownProps) {
+    // const path = ownProps.match.path;
+    // if(path === "/") dispatch(setTitle("Cerveceria Allende"));
     return {
         onMenuClick: bindActionCreators(toggleDrawer, dispatch),
         userActions:bindActionCreators(userActions, dispatch)

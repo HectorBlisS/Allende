@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {LoginDisplay} from './LoginDisplay';
-import firebase from '../../firebase';
+import firebase from '../../firebase/firebase';
 import toastr from 'toastr';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import * as userActions from '../../actions/userActions';
+import * as userActions from '../../redux/actions/userActions';
 
 class LoginContainer extends Component{
 
