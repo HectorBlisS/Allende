@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import * as distributorActions from '../../actions/distributorActions';
 
 //components
 import './admin.css';
@@ -8,6 +9,8 @@ import toastr from 'toastr';
 //material-ui
 import {FloatingActionButton, Dialog, FlatButton} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
 
 class AdminContainer extends Component {
 
@@ -82,4 +85,19 @@ class AdminContainer extends Component {
     }
 }
 
+
+function mapStateToProps(state, ownProps){
+    return{
+        distributors:state.distributors,
+        fetched:state.distributors!==undefined
+    }
+}
+
+function mapDispatchToProps(dispatch){
+    return{
+        distributorActions:bindActionCreators(distributorActions, dispatch),
+    }
+}
+
+AdminContainer = connect(mapStateToProps, mapDispatchToProps)(AdminContainer);
 export default AdminContainer;
