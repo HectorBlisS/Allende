@@ -4,8 +4,9 @@ import {bindActionCreators} from 'redux';
 import {Dialog, FloatingActionButton, FlatButton} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import DashboardComponent from "../dashboard/DashboardComponent";
-import NewItemForm from "./NewItemForm";
+//import NewItemForm from "./NewItemForm";
 import * as inventarioActions from '../../redux/actions/inventarioActions';
+
 import toastr from 'toastr';
 
 class DistributorDashboard extends Component {
@@ -63,7 +64,7 @@ class DistributorDashboard extends Component {
                             contentStyle={{width:'30%'}}
                             open={this.state.open}
                             onRequestClose={this.handleClose}>
-                            <NewItemForm onChangeText={this.onChangeText}/>
+                            {/*<NewItemForm onChangeText={this.onChangeText}/>*/}
                         </Dialog>
                         <FloatingActionButton onTouchTap={this.handleOpen}>
                             <ContentAdd />

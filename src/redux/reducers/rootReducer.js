@@ -4,6 +4,8 @@ import {distributorReducer} from "./distributorReducer";
 import {userReducer} from "./userReducer";
 import {inventarioreducer} from "./inventarioReducer";
 import {clientsReducer} from "./clientsReducer";
+//import {productsReducer} from "./productsReducer";
+
 
 
 function mientrasReducer(state="", action){
@@ -20,4 +22,5 @@ export const rootReducer = combineReducers({
     user:userReducer,
     inventario:inventarioreducer,
     clients:clientsReducer
+    //products:productsReducer
 });

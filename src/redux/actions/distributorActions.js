@@ -19,6 +19,7 @@ export function addDistributor(distributor){
 
                 distributor['isAdmin']=false;
                 distributor['key']=user.uid;
+                distributor['just_created']=true;
                 firebase.database().ref('distributors/'+user.uid).set(distributor)
                     .then(r=>{
                         dispatch(addDistributorSuccess(distributor));

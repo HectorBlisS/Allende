@@ -1,6 +1,7 @@
 import firebase from '../../firebase/firebase';
 import toastr from 'toastr';
 import {getInventario} from "./inventarioActions";
+//import {getAllProducts} from "./productsActions";
 //import alertify from 'alertify.js';
 const distributorsDb = firebase.database().ref("distributors");
 
@@ -105,7 +106,7 @@ export function comprobarUsuario(){
         return firebase.auth().onAuthStateChanged((u) => {
             if(u){
                 dispatch(comprobarUsuarioAction(u));
-                dispatch(getInventario());
+                //dispatch(getAllProducts());
 
             }else{
 

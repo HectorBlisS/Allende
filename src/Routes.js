@@ -8,6 +8,7 @@ import HomePage from './components/home/HomePage';
 import {Admin} from './components/admin/Admin';
 import {AdminDistribuitorDetail} from './components/admin/AdminDistribuitorDetail';
 import DistributorDashboard from './components/distributor/DistributorDashboard';
+import InventarioAdmin from './components/admin/InventarioAdmin';
 
 
 
@@ -21,6 +22,7 @@ const Routes = () => (
         <Route path="/caja" component={CajaComponent}/>
         <Route exact path="/admin" component={Admin}/>
         <Route path="/admin/distributors/:id" component={AdminDistribuitorDetail}/>
+            <Route path="/admin/inventario" component={InventarioAdmin}/>
     </Switch>
 );
 
