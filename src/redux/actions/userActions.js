@@ -1,6 +1,7 @@
 import firebase from '../../firebase/firebase';
 import toastr from 'toastr';
 import {getInventario} from "./inventarioActions";
+import {usuarioVerificado} from "./usuarioVerificadoActions";
 //import {getAllProducts} from "./productsActions";
 //import alertify from 'alertify.js';
 const distributorsDb = firebase.database().ref("distributors");
@@ -109,19 +110,38 @@ export function comprobarUsuario(){
                 distributorsDb.child(u.uid).on("value", s=>{
                     u["profile"] = s.val();
                     dispatch(comprobarUsuarioAction(u));
+                    dispatch(usuarioVerificado())
                 });
                 //dispatch(getAllProducts());
 
             }else{
-
+                dispatch(usuarioVerificado())
             }
         });
+    }
+}
+
+export function changeJustCreatedToFalse(){
+    return function (dispatch, getState) {
+        let updates = {};
+        let {profile} = getState().user;
+        profile['just_created'] = false;
+        updates['/distributors/'  +  profile.key] = profile;
+        return firebase.database().ref().update(updates);
     }
 }
 
 export function updatePassword(newPassword) {
     return function (dispatch, getState) {
         const {user} = getState();
-        return user.updatePassword(newPassword);
+        return user.updatePassword(newPassword)
+            .then( r => {
+                dispatch(changeJustCreatedToFalse());
+                return Promise.resolve(r);
+            })
+            .catch( e => {
+                toastr.error(e.message);
+                return Promise.reject(e);
+            });
     }
 }

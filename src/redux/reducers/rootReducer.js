@@ -4,6 +4,7 @@ import {distributorReducer} from "./distributorReducer";
 import {userReducer} from "./userReducer";
 import {inventarioreducer} from "./inventarioReducer";
 import {clientsReducer} from "./clientsReducer";
+import usuarioVerificadoReducer from "./usuarioVerificadoReducer";
 //import {productsReducer} from "./productsReducer";
 
 
@@ -21,6 +22,7 @@ export const rootReducer = combineReducers({
     distributors:distributorReducer,
     user:userReducer,
     inventario:inventarioreducer,
-    clients:clientsReducer
+    clients:clientsReducer,
+    usuarioVerificado:usuarioVerificadoReducer
     //products:productsReducer
 });

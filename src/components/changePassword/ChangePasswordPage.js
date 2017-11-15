@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import './ChangePasswordStyles.css'
-import ChangePasswordDisplay from "./ChangePasswordDisplay";
+import {ChangePasswordDisplay} from "./ChangePasswordDisplay";
 import toastr from 'toastr';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import * as userActions from '../../redux/actions/userActions';
+import {Redirect} from "react-router-dom";
 
 class ChangePasswordPage extends Component {
     constructor(props) {
@@ -19,6 +20,7 @@ class ChangePasswordPage extends Component {
             }
         };
     }
+
 
     changeCredentialFields = (e) => {
         let {credential} = this.state;
@@ -58,17 +60,27 @@ class ChangePasswordPage extends Component {
         }
     };
 
+    redirectToDash = () => {
+      this.props.history.push('/dashboard');
+    };
+
     render() {
         const {credential, error} = this.state;
-        console.info(this.props);
+        const {user,usuarioVerificado,logged} = this.props;
         return (
             <div>
-                <ChangePasswordDisplay
-                    credential={credential}
-                    error={error}
-                    onChange={this.changeCredentialFields}
-                    updatePassword={this.updatePassword}
-                />
+                {
+                    !usuarioVerificado         ? <p>Loading...</p>             :
+                    !logged                    ? <Redirect to="/"/>            :
+                    !user.profile.just_created ? <Redirect to="/dashboard"/>   :
+                        <ChangePasswordDisplay
+                            credential={credential}
+                            error={error}
+                            onChange={this.changeCredentialFields}
+                            updatePassword={this.updatePassword}
+                            redirectToDash={this.redirectToDash}
+                        />
+                }
             </div>
         );
     }
@@ -76,7 +88,9 @@ class ChangePasswordPage extends Component {
 
 function mapStateToProps(state, ownProps) {
     return {
-        user: state.user
+        user: state.user,
+        usuarioVerificado: state.usuarioVerificado,
+        logged: state.user !== null
     }
 }
 

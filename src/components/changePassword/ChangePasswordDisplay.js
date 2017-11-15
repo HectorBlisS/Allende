@@ -1,9 +1,9 @@
 import React from 'react';
-import {Card, CircularProgress, Paper, RaisedButton, TextField} from "material-ui";
-import {Link} from "react-router-dom";
+import { CircularProgress, Paper, RaisedButton, TextField} from "material-ui";
+
 import AlertIcon from 'material-ui/svg-icons/alert/warning';
 
-const ChangePasswordDisplay = ({onChange, credential, error, loading, updatePassword}) => {
+export const ChangePasswordDisplay = ({onChange, credential, error, loading, updatePassword, redirectToDash}) => {
     const errorMsg = 'La contraseña no coincide';
     return (
         <div className="tabla">
@@ -27,8 +27,10 @@ const ChangePasswordDisplay = ({onChange, credential, error, loading, updatePass
                             value={credential.password}
                             name="password"
                             type="password"
-                            floatingLabelText="Contraseña"
+                            floatingLabelText="Nueva contraseña"
                             errorText={error.password ? errorMsg : ''}
+                            underlineFocusStyle={styles.underlineStyle}
+                            floatingLabelStyle={styles.floatingLabelStyle}
                         />
                         <TextField
                             onChange={onChange}
@@ -37,10 +39,13 @@ const ChangePasswordDisplay = ({onChange, credential, error, loading, updatePass
                             type="password"
                             floatingLabelText="Confirmar contraseña"
                             errorText={error.passwordConfirm ? errorMsg : ''}
+                            underlineFocusStyle={styles.underlineStyle}
+                            floatingLabelStyle={styles.floatingLabelStyle}
                         />
                         <div className="botones">
                             <RaisedButton
                                 //onTouchTap={onLogin}
+                                onClick={redirectToDash}
                                 labelColor="#FFFFFF"
                                 backgroundColor="orange"
                                 label={loading ? <CircularProgress color="white" size={30}/>:"Más tarde"}
@@ -60,7 +65,11 @@ const ChangePasswordDisplay = ({onChange, credential, error, loading, updatePass
     );
 };
 
-
-
-
-export default ChangePasswordDisplay;
+const styles = {
+    underlineStyle: {
+        borderColor: 'green'
+    },
+    floatingLabelStyle: {
+        color: '#424242',
+    },
+};
