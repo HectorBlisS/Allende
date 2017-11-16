@@ -21,6 +21,7 @@ import Delete from 'material-ui/svg-icons/action/delete';
 import {Route} from 'react-router-dom';
 import Pedidos from './Pedidos';
 import ProductosContainer from "./ProductosContainer";
+import SolicitarProducto from './SolicitarProducto';
 import Clientes from './Clientes';
 
 //import {bindActionCreators} from 'redux';
@@ -80,6 +81,7 @@ class InventarioPage extends Component {
                     <Route path="/inventario/productos" component={ProductosContainer}/>
                     <Route path="/inventario/pedidos" component={Pedidos} />
                     <Route path="/inventario/clientes" component={Clientes} />
+                    <Route path="/inventario/solicitar" component={SolicitarProducto} />
                 </div>
 
 
@@ -94,7 +96,7 @@ class InventarioPage extends Component {
                             primaryText="Clientes" leftIcon={<PersonAdd />} />
                         <Divider />
                         <MenuItem primaryText="Dashboard" leftIcon={<ContentCopy />} />
-                        <MenuItem primaryText="Solcitar producto" leftIcon={<Download />} />
+                        <MenuItem primaryText="Solcitar producto" onClick={()=>this.changeRoute("solicitar")} leftIcon={<Download />} />
                         <Divider />
                         <MenuItem primaryText="Archivo" leftIcon={<Delete />} />
                     </Menu>
