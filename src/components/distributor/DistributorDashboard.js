@@ -54,23 +54,7 @@ class DistributorDashboard extends Component {
 
         return (
             <div>
-
-                    <div>
                         <DashboardComponent {...this.props.distributor}/>
-                        <Dialog
-                            title="Dialog With Actions"
-                            actions={actions}
-                            modal={false}
-                            contentStyle={{width:'30%'}}
-                            open={this.state.open}
-                            onRequestClose={this.handleClose}>
-                            {/*<NewItemForm onChangeText={this.onChangeText}/>*/}
-                        </Dialog>
-                        <FloatingActionButton onTouchTap={this.handleOpen}>
-                            <ContentAdd />
-                        </FloatingActionButton>
-                    </div>:
-                    <p>loading</p>
             </div>
         );
     }

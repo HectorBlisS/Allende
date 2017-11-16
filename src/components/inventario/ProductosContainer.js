@@ -42,6 +42,7 @@ class ProductosContainer extends Component {
 //};
 
 function mapStateToProps(state, ownProps) {
+    console.log(state)
     return {
         drawer: state.bar.drawer
     };

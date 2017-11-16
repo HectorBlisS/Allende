@@ -42,25 +42,12 @@ class InventarioPage extends Component {
     }
 
     componentDidMount(){
-        this.props.toggleDrawer();
+        this.toggleDrawer();
     }
 
-    // componentDidMount(){
-    //     this.props.toggleDrawer();
-    //     this.setState({
-    //         title:this.props.title,
-    //         drawer:this.props.drawer,
-    //         slug:this.props.slug
-    //     });
-    // }
-    // componentWillReceiveProps(p){
-    //     //console.log(p);
-    //     this.setState({
-    //         title:p.title,
-    //         drawer:p.drawer,
-    //         slug:p.slug
-    //     });
-    // }
+    toggleDrawer = () => {
+        this.setState({drawer:true});
+    };
 
     changeRoute = (route) => {
         this.setState({item:route});
@@ -69,8 +56,8 @@ class InventarioPage extends Component {
     };
 
     render() {
-        const {item} = this.state;
-        const {drawer} = this.props;
+        const {item, drawer} = this.state;
+        //const {drawer} = this.props;
         //console.log(this.props);
         //console.log(title);
         //console.log(drawer);

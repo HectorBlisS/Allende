@@ -14,7 +14,7 @@ export function addDistributorSuccess(distributor){
 
 export function addDistributor(distributor){
     return function(dispatch, getState){
-        return secondaryApp.auth().createUserWithEmailAndPassword(distributor.email, 'putostodos')
+        return secondaryApp.auth().createUserWithEmailAndPassword(distributor.email, 'cerveceriaAllende')
             .then(user=>{
 
                 distributor['isAdmin']=false;

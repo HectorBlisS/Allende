@@ -93,7 +93,7 @@ export function cerrarSesion() {
         return firebase.auth().signOut()
             .then((r) => {
                 console.log('Ya sali ', r);
-                toastr.success('vuelveeeeee');
+                //toastr.success('vuelveeeeee');
 
                 dispatch(cerrarSesionAction(null));
             }).catch( (error) => {

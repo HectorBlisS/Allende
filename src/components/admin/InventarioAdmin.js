@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {Dialog, FloatingActionButton, FlatButton} from 'material-ui';
+import {Dialog, FloatingActionButton, FlatButton, RaisedButton} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
 import DashboardComponent from "../dashboard/DashboardComponent";
 import NewItemForm from "./NewItemForm";
@@ -75,9 +75,8 @@ class InventarioAdmin extends Component {
 
         return (
             <div>
-                    <div>
-                        <ProductsList products={this.props.products} fetched={this.props.fetched}/>
-                        <Dialog
+                <ProductsList products={this.props.products} fetched={this.props.fetched}/>
+                <Dialog
                             title="Agrega un Nuevo Producto"
                             autoScrollBodyContent
                             actions={actions}
@@ -85,18 +84,17 @@ class InventarioAdmin extends Component {
                             contentStyle={{width:'30%'}}
                             open={this.state.open}
                             onRequestClose={this.handleClose}>
-                            <NewItemForm
+                    <NewItemForm
                                 product={this.state.newProduct}
                                 loader={this.state.loader}
                                 onChangeText={this.onChangeText}
                                 uploadPhoto={this.uploadPhoto}/>
-                        </Dialog>
-                        <FloatingActionButton
+                </Dialog>
+                <FloatingActionButton
                             className="add-distributor-button"
                             onTouchTap={this.handleOpen}>
                             <ContentAdd />
                         </FloatingActionButton>
-                    </div>
             </div>
         );
     }
