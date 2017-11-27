@@ -21,6 +21,7 @@ class LoginContainer extends Component{
         firebase.auth().onAuthStateChanged(user=>{
             if(user){
                 distributorsDb.child(user.uid).on("value", s=>{
+                   if(!s.val()) return;
                     let {profile} = this.state;
                     profile = s.val();
                     this.setState({profile}, () => {
@@ -67,7 +68,8 @@ class LoginContainer extends Component{
         this.setState({auth});
     };
 
-    onLogin = () => {
+    onLogin = (e) => {
+        e.preventDefault();
         const auth = this.state.auth;
         this.setState({loading:true});
         this.props.userActions.iniciarSesion(auth.email, auth.password)
@@ -77,7 +79,7 @@ class LoginContainer extends Component{
             })
             .catch(e=>{
                 console.log(e);
-                toastr.error("algo malo pasó ",e);
+                toastr.error(e);
                 this.setState({loading:false});
             });
     };

@@ -25,6 +25,7 @@ const DashboardComponent = (props) => {
                    <GridList cols={2} cellHeight={'auto'}>
                        <GridTile className="dashboard-summary-container" cols={1}>
                            <Paper className="summary_container" zDepth={2}>
+                               <h2>Tus cervezas más vendidas</h2>
                                <Grafica
                                    medidasLista={fakeFirebase.data}
                                />
@@ -32,6 +33,7 @@ const DashboardComponent = (props) => {
                        </GridTile>
                        <GridTile className="dashboard-summary-container" cols={1}>
                            <Paper className="summary_container" zDepth={2}>
+                               <h2>Tus mejores clientes</h2>
                                <Grafica
                                    medidasLista={fakeFirebase.data}
                                />
@@ -41,6 +43,7 @@ const DashboardComponent = (props) => {
                    <GridList cellHeight={'auto'} cols={2}>
                        <GridTile className="dashboard-summary-container" cols={1}>
                            <Paper className="summary_container" zDepth={2}>
+                               <h2>Días de mayor demanda</h2>
                                <Grafica
                                    medidasLista={fakeFirebase.data}
                                />
@@ -48,6 +51,7 @@ const DashboardComponent = (props) => {
                        </GridTile>
                        <GridTile className="dashboard-summary-container" cols={1}>
                            <Paper className="summary_container" zDepth={2}>
+                               <h2>Ventas del mes</h2>
                                <Grafica
                                    medidasLista={fakeFirebase.data}
                                />
