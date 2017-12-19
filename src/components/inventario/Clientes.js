@@ -9,8 +9,8 @@ import ContentAdd from 'material-ui/svg-icons/content/add';
 import toastr from 'toastr';
 //redux
 import {clientWatcher} from "../../firebase/watchers";
-//import firebase from '../../firebase/firebase';
-import {saveClient, removeClient} from "../../redux/actions/clientsActions";
+import firebase from '../../firebase/firebase';
+import {saveClient, removeClient, getUserClients} from "../../redux/actions/clientsActions";
 
 
 const RowTable = ({onEdit, key, id, name, rfc, description, ...otherProps}) => (
@@ -40,7 +40,14 @@ class Clientes extends Component {
     };
 
     componentWillMount(){
-        clientWatcher.initWatch();
+        //clientWatcher.initWatch();
+        firebase.auth().onAuthStateChanged(user=>{
+           if(user){
+               this.props.getUserClients(user);
+           }
+        });
+
+
     }
 
     componentDidMount(){
@@ -239,6 +246,7 @@ const styles = {
 };
 
 function mapStateToProps(state, ownProps) {
+    //console.log(state.clients);
     return {
         clientes: state.clients.myClients,
         fetched:state.clients.myClients.length > 0
@@ -247,4 +255,4 @@ function mapStateToProps(state, ownProps) {
 
 
 
-export default Clientes = connect(mapStateToProps, {saveClient, removeClient})(Clientes);
+export default Clientes = connect(mapStateToProps, {saveClient, removeClient, getUserClients})(Clientes);
