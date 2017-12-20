@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {Dialog, FloatingActionButton, FlatButton} from 'material-ui';
 import ContentAdd from 'material-ui/svg-icons/content/add';
-import DashboardComponent from "../dashboard/DashboardComponent";
+import DistributorContainer from "../dashboard/DistributorContainer";
 //import NewItemForm from "./NewItemForm";
 import * as inventarioActions from '../../redux/actions/inventarioActions';
 
@@ -53,8 +53,8 @@ class DistributorDashboard extends Component {
         ];
 
         return (
-            <div>
-                        <DashboardComponent {...this.props.distributor}/>
+            <div style={{backgroundColor:"#eceff1"}}>
+                <DistributorContainer{...this.props.distributor}/>
             </div>
         );
     }

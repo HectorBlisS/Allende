@@ -17,14 +17,21 @@
 
 .dashboard-summary-container{
     box-sizing: border-box;
+    border-bottom: 1px solid #eceff1;
     padding: 2%;
 }
+.summary{
+    box-sizing: border-box;
+    padding: 20px 2%;
+    width: 100%;
+    height: 90%;
 
+}
 .summary_container{
     box-sizing: border-box;
     padding: 20px 2%;
     width: 100%;
-    height: 100%;
+    height: 270px;
 }
 
 .summary_avatar{
@@ -94,6 +101,60 @@
 .dashboard-component{
     padding:2%;
     width: 100%;
-    height: 90vh;
+    height: 90%;
     box-sizing: border-box;
+}
+
+.dash{
+    display: flex;
+    flex-wrap: wrap;
+}
+.info{
+    width:270px;
+    flex-grow: 1;
+    height:100vh;
+    margin: 10px 30px;
+}
+.tablas{
+    width:500px;
+    flex-grow: 2;
+    height: 100vh;
+    margin: 10px;
+}
+.estad{
+    display: flex;
+    flex-wrap: wrap;
+}
+.cuadro{
+    width:250px;
+    height:250px;
+    flex-grow: 1;
+    border-radius: 10px;
+    margin: 20px 10px;
+}
+.progress{
+    padding: 5%;
+}
+.list{
+    display: flex;
+    height:50px;
+    align-items: center;
+}
+.lista_name{
+    width:40%;
+    vertical-align: center;
+}
+.list_bar{
+    width:60%;
+    margin: 0 auto;
+}
+.borde{
+    border-top:1px solid #cfd8dc ;
+}
+.line{
+    background-color: #eceff1 ;
+    height:1px;
+    border: none;
+    width:100%;
+    margin:0 auto;
 }

@@ -23,7 +23,7 @@ const Grafica = (props) => {
                 {
                     data: datos, //[100,80],
 
-                    backgroundColor: ["#ff6384", "#36a2eb", "#ffce56"],
+                    backgroundColor: ["#6bafbd", "#f3ce85", "#fc8675", "#65cea7"],
                     // borderCapStyle: "butt",
                     // borderColor: "rgba(75,192,192,1)",
                     // borderDash: [],
