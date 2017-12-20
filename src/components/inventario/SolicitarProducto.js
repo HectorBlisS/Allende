@@ -1,5 +1,5 @@
 import React from 'react';
-import {TextField, Paper, SelectField, MenuItem, GridList, GridTile} from 'material-ui';
+import {TextField, Paper, SelectField, MenuItem, GridList, GridTile, RaisedButton} from 'material-ui';
 
 const SolicitarProducto = ({props}) => {
     return (
@@ -14,10 +14,10 @@ const SolicitarProducto = ({props}) => {
 
                        >
                            <MenuItem value={1} primaryText="Super Chelas" />
-                           <MenuItem value={2} primaryText="Every Night" />
-                           <MenuItem value={3} primaryText="Weeknights" />
-                           <MenuItem value={4} primaryText="Weekends" />
-                           <MenuItem value={5} primaryText="Weekly" />
+                           <MenuItem value={2} primaryText="Expendio Beeer" />
+                           <MenuItem value={3} primaryText="Miscelanea Don Gorro" />
+                           <MenuItem value={4} primaryText="Bar el Oso" />
+                           <MenuItem value={5} primaryText="La barata" />
                        </SelectField>
                        <br/>
 
@@ -27,10 +27,10 @@ const SolicitarProducto = ({props}) => {
 
                        >
                            <MenuItem value={1} primaryText="Brown Ale" />
-                           <MenuItem value={2} primaryText="Every Night" />
-                           <MenuItem value={3} primaryText="Weeknights" />
-                           <MenuItem value={4} primaryText="Weekends" />
-                           <MenuItem value={5} primaryText="Weekly" />
+                           <MenuItem value={2} primaryText="IPA" />
+                           <MenuItem value={3} primaryText="Golden Ale" />
+                           <MenuItem value={4} primaryText="Agave Lager" />
+
                        </SelectField>
                        <br/>
                        <TextField
@@ -43,6 +43,7 @@ const SolicitarProducto = ({props}) => {
                            floatingLabelText="Presentacion"
                            hintText="Presentacion"/>
                        <br/>
+                       <RaisedButton label={'Enviar Orden'}/>
 
                    </Paper>
                </GridTile>

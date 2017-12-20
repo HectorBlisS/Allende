@@ -15,7 +15,7 @@ import ContentLink from 'material-ui/svg-icons/content/link';
 import Divider from 'material-ui/Divider';
 import ContentCopy from 'material-ui/svg-icons/content/content-copy';
 import Download from 'material-ui/svg-icons/file/file-download';
-import Delete from 'material-ui/svg-icons/action/delete';
+import Unarchive from 'material-ui/svg-icons/content/unarchive';
 
 //route
 import {Route} from 'react-router-dom';
@@ -23,6 +23,11 @@ import Pedidos from './Pedidos';
 import ProductosContainer from "./ProductosContainer";
 import SolicitarProducto from './SolicitarProducto';
 import Clientes from './Clientes';
+
+import DashboardComponent from "../dashboard/DashboardComponent";
+
+import {Bodega} from "./Bodega";
+
 
 //import {bindActionCreators} from 'redux';
 
@@ -68,7 +73,9 @@ class InventarioPage extends Component {
                     <Route path="/inventario/productos" component={ProductosContainer}/>
                     <Route path="/inventario/pedidos" component={Pedidos} />
                     <Route path="/inventario/clientes" component={Clientes} />
+                    <Route path="/inventario/dashboard" component={DashboardComponent} />
                     <Route path="/inventario/solicitar" component={SolicitarProducto} />
+                    <Route path="/inventario/bodega" component={Bodega} />
                 </div>
 
 
@@ -82,10 +89,10 @@ class InventarioPage extends Component {
                             onClick={()=>this.changeRoute("clientes")}
                             primaryText="Clientes" leftIcon={<PersonAdd />} />
                         <Divider />
-                        <MenuItem primaryText="Dashboard" leftIcon={<ContentCopy />} />
-                        <MenuItem primaryText="Solcitar producto" onClick={()=>this.changeRoute("solicitar")} leftIcon={<Download />} />
+                        <MenuItem primaryText="Dashboard" leftIcon={<ContentCopy />} onClick={()=>this.changeRoute("dashboard")}/>
+                        <MenuItem primaryText="Solicitar Producto" onClick={()=>this.changeRoute("solicitar")} leftIcon={<Download />} />
                         <Divider />
-                        <MenuItem primaryText="Archivo" leftIcon={<Delete />} />
+                        <MenuItem onClick={()=>this.changeRoute("bodega")} primaryText="Bodega" leftIcon={<Unarchive />} />
                     </Menu>
 
                 </Drawer>

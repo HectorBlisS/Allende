@@ -63,11 +63,11 @@ class ProductosForm extends Component {
                             value={cerveza.name}
                             onChange={this.handleChangeProduct}
                         >
-                            <MenuItem value={"roja"} primaryText="Cerveza roja" />
-                            <MenuItem value={"vieja"} primaryText="Cerveza vieja" />
-                            <MenuItem value={"azul"} primaryText="Cerveza Azul" />
-                            <MenuItem value={"cruda"} primaryText="Cerveza cruda" />
-                            <MenuItem value={"mesta"} primaryText="Cervezamesta" />
+                            <MenuItem value={"roja"} primaryText="Brown Ale" />
+                            <MenuItem value={"vieja"} primaryText="Agave Lager" />
+                            <MenuItem value={"azul"} primaryText="Golden Ale" />
+                            <MenuItem value={"cruda"} primaryText="IPA" />
+
                         </SelectField>
                         <h3>Stock actual: {cerveza.stock}{cerveza.medida} </h3>
                     </div>

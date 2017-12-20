@@ -8,7 +8,7 @@
 /*amarillo#d26600 rojo#a20f11 green#1d2b29 orange#f36843*/
 .beer-card{
 
-    background: linear-gradient(left,  #24f954, #01bcd5);
+    background: linear-gradient(left, #cc9900, #fff);
     box-sizing: border-box;
     position: relative;
     height: 30vh;
@@ -36,7 +36,8 @@
 .card-right{
     align-self: flex-end;
     flex-direction: row-reverse;
-    background: linear-gradient(left, #01bcd5, #24f954);
+    /*background: linear-gradient(left, #01bcd5, #24f954);*/
+    background: linear-gradient(left, #fff, #cc9900);
     padding: 2% 15% 0 0;
 
 }

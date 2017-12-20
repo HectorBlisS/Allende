@@ -31,6 +31,12 @@
     min-height:150px;
 
 }
+.beer_image_form{
+    width: 60%;
+    height: 500px;
+    max-height: 500px;
+    min-height:150px;
+}
 .upload_photo{
     position: relative;
     display: flex;
