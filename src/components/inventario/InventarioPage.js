@@ -27,6 +27,7 @@ import Clientes from './Clientes';
 import DashboardComponent from "../dashboard/DashboardComponent";
 
 import {Bodega} from "./Bodega";
+import DistributorDashboard from "../distributor/DistributorDashboard";
 
 
 //import {bindActionCreators} from 'redux';
@@ -73,7 +74,7 @@ class InventarioPage extends Component {
                     <Route path="/inventario/productos" component={ProductosContainer}/>
                     <Route path="/inventario/pedidos" component={Pedidos} />
                     <Route path="/inventario/clientes" component={Clientes} />
-                    <Route path="/inventario/dashboard" component={DashboardComponent} />
+                    <Route path="/inventario/dashboard" component={DistributorDashboard} />
                     <Route path="/inventario/solicitar" component={SolicitarProducto} />
                     <Route path="/inventario/bodega" component={Bodega} />
                 </div>
