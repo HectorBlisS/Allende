@@ -17,45 +17,37 @@ const DashboardComponent = (props) => {
     } = props;
     return (
         <div>
-            <GridList className='dashboard-component' cols={3} cellHeight={'auto'}>
-                <GridTile className="dashboard-summary-container" cols={1}>
-                    <DistributorMain distributor={distributor}/>
-               </GridTile>
+            <GridList className='dashboard-component' cols={2} cellHeight={'auto'}>
                <GridList cols={2} cellHeight={'auto'}>
                    <GridList cols={2} cellHeight={'auto'}>
                        <GridTile className="dashboard-summary-container" cols={1}>
-                           <Paper className="summary_container" zDepth={2}>
                                <h2>Tus cervezas más vendidas</h2>
                                <Grafica
                                    medidasLista={fakeFirebase.data}
                                />
-                           </Paper>
+
                        </GridTile>
                        <GridTile className="dashboard-summary-container" cols={1}>
-                           <Paper className="summary_container" zDepth={2}>
+
                                <h2>Tus mejores clientes</h2>
                                <Grafica
                                    medidasLista={fakeFirebase.data}
                                />
-                           </Paper>
+
                        </GridTile>
                    </GridList>
                    <GridList cellHeight={'auto'} cols={2}>
                        <GridTile className="dashboard-summary-container" cols={1}>
-                           <Paper className="summary_container" zDepth={2}>
                                <h2>Días de mayor demanda</h2>
                                <Grafica
                                    medidasLista={fakeFirebase.data}
                                />
-                           </Paper>
                        </GridTile>
                        <GridTile className="dashboard-summary-container" cols={1}>
-                           <Paper className="summary_container" zDepth={2}>
                                <h2>Ventas del mes</h2>
                                <Grafica
                                    medidasLista={fakeFirebase.data}
                                />
-                           </Paper>
                        </GridTile>
                    </GridList>
                </GridList>

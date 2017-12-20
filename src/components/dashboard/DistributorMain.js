@@ -4,18 +4,21 @@ import moment from 'moment';
 
 const DistributorMain = (props, {name, address, rfc}) => {
     return (
-        <Paper className="summary_container" zDepth={2}>
+        <Paper className="summary" zDepth={2}>
             <Avatar
                 className="summary_avatar"
                 src={'http://cerveceriaallende.mx/wp-content/uploads/2015/05/logo.png'}
                 size={150}/>
             <ul className="summary_list">
-                <li className="summary_element"><h2>{name}</h2></li>
-                <li className="summary_element">Dirección: {address}</li>
-                <li className="summary_element">Rfc: {rfc}</li>
-                <li className="summary_element">Cajas vendidas: { Math.round( Math.random() * 500 + 100)  }</li>
-                <li className="summary_element">Cantidad vendida: ${ Math.round( Math.random() * 50000 + 100)  }</li>
-                <li className="summary_element">Stock: 20000 </li>
+                <li className="summary_element"><h2>Distribuidor Bajio</h2></li>
+                <li className="summary_element">Dirección: Venustiano Carranza #114</li>
+                <li className="summary_element">Rfc: CAMHGNRR02</li>
+                <br/>
+                <hr className="line"/>
+                <br/>
+                <li className="summary_element">Cajas vendidas: 4,000</li>
+                <li className="summary_element">Cantidad vendida: $500,000</li>
+                <li className="summary_element">Stock: 2800 </li>
                 <li className="summary_element">última venta: {moment().format('DD MMM YYYY')}</li>
             </ul>
         </Paper>
