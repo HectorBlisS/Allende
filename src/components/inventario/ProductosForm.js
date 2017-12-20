@@ -67,7 +67,7 @@ class ProductosForm extends Component {
                             <MenuItem value={"vieja"} primaryText="Agave Lager" />
                             <MenuItem value={"azul"} primaryText="Golden Ale" />
                             <MenuItem value={"cruda"} primaryText="IPA" />
-                            
+
                         </SelectField>
                         <h3>Stock actual: {cerveza.stock}{cerveza.medida} </h3>
                     </div>
