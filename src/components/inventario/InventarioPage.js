@@ -90,7 +90,7 @@ class InventarioPage extends Component {
                             primaryText="Clientes" leftIcon={<PersonAdd />} />
                         <Divider />
                         <MenuItem primaryText="Dashboard" leftIcon={<ContentCopy />} onClick={()=>this.changeRoute("dashboard")}/>
-                        <MenuItem primaryText="Ordenes" onClick={()=>this.changeRoute("solicitar")} leftIcon={<Download />} />
+                        <MenuItem primaryText="Solicitar Producto" onClick={()=>this.changeRoute("solicitar")} leftIcon={<Download />} />
                         <Divider />
                         <MenuItem onClick={()=>this.changeRoute("bodega")} primaryText="Bodega" leftIcon={<Unarchive />} />
                     </Menu>
