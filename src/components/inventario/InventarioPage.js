@@ -23,6 +23,7 @@ import Pedidos from './Pedidos';
 import ProductosContainer from "./ProductosContainer";
 import SolicitarProducto from './SolicitarProducto';
 import Clientes from './Clientes';
+import DashboardComponent from "../dashboard/DashboardComponent";
 
 //import {bindActionCreators} from 'redux';
 
@@ -68,6 +69,7 @@ class InventarioPage extends Component {
                     <Route path="/inventario/productos" component={ProductosContainer}/>
                     <Route path="/inventario/pedidos" component={Pedidos} />
                     <Route path="/inventario/clientes" component={Clientes} />
+                    <Route path="/inventario/dashboard" component={DashboardComponent} />
                     <Route path="/inventario/solicitar" component={SolicitarProducto} />
                 </div>
 
@@ -82,7 +84,7 @@ class InventarioPage extends Component {
                             onClick={()=>this.changeRoute("clientes")}
                             primaryText="Clientes" leftIcon={<PersonAdd />} />
                         <Divider />
-                        <MenuItem primaryText="Dashboard" leftIcon={<ContentCopy />} />
+                        <MenuItem primaryText="Dashboard" leftIcon={<ContentCopy />} onClick={()=>this.changeRoute("dashboard")}/>
                         <MenuItem primaryText="Ordenes" onClick={()=>this.changeRoute("solicitar")} leftIcon={<Download />} />
                         <Divider />
                         <MenuItem primaryText="Archivo" leftIcon={<Delete />} />

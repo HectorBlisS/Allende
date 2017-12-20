@@ -17,10 +17,10 @@ const Logged = (props) => (
         anchorOrigin={{horizontal: 'right', vertical: 'top'}}
     >
         <MenuItem containerElement={ <Link style={{textDecoration:"none"}} to="/admin"/>} primaryText="Admin"/>
-        <Link style={{textDecoration:"none"}} to="/dashboard">
+        {/*<Link style={{textDecoration:"none"}} to="/dashboard">
         <MenuItem primaryText="Dashboard" />
-        </Link>
-        <Link style={{textDecoration:"none"}} to="/inventario">
+        </Link>*/}
+        <Link style={{textDecoration:"none"}} to="/inventario/dashboard">
             <MenuItem primaryText="Inventario" />
         </Link>
         <MenuItem onClick={props.logout} primaryText="Cerrar sesión" />
