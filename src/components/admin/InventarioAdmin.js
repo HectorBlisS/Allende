@@ -43,7 +43,7 @@ class InventarioAdmin extends Component {
     uploadPhoto=(e)=>{
         let newProduct = this.state.newProduct;
         let file = e.target.files[0];
-        let uploadTask = firebase.storage().ref().child('products/'+newProduct.name).put(file);
+        let uploadTask = firebase.storage().ref().child('products/'+newProduct.producto).put(file);
         uploadTask.then(r=>{
             console.log(r);
             newProduct['image']=r.downloadURL;
@@ -78,7 +78,7 @@ class InventarioAdmin extends Component {
                 <ProductsList products={this.props.products} fetched={this.props.fetched}/>
                 <Dialog
                             title="Agrega un Nuevo Producto"
-                            autoScrollBodyContent
+                            autoScrollBodyContent={true}
                             actions={actions}
                             modal={false}
                             contentStyle={{width:'30%'}}

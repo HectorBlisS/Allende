@@ -36,7 +36,11 @@ const NewItemForm = ({onChangeText, uploadPhoto, loader, product}) => {
                 <div className="loader_photo">
                     {loader?<CircularProgress size={80} thickness={5} />:''}
                 </div>
-                <img src={product.image} alt="" className="product_image_form" onClick={clicki} />
+                {product.image?
+                    <img src={product.image} alt="" className="beer_image_form" onClick={clicki} />
+                    :
+                    <img src={product.image} alt="" className="product_image_form" onClick={clicki} />
+                }
 
             </div>
         </div>

@@ -38,7 +38,7 @@ export const LoginDisplay = ({loading=false, email, password, onLogin, onChange}
                     </div>
                     <span>¿Olvidaste tu contraseña?, <Link to="/login">Recuperala</Link></span>
                     <br/>
-                   <span>¿No tienes cuenta?, <Link to="/login">¡Crea una!</Link></span>
+                    {/*<span>¿No tienes cuenta?, <Link to="/login">¡Crea una!</Link></span>*/}
 
                 </Card>
             </form>
@@ -52,11 +52,11 @@ export const LoginDisplay = ({loading=false, email, password, onLogin, onChange}
 
 const styles = {
     tabla: {
-        backgroundImage:"url('https://thumbs.dreamstime.com/z/seamless-background-grocery-shopping-pattern-colorful-cashier-sellers-cash-registers-baskets-paper-bags-fresh-73835477.jpg')",
+        backgroundImage:"url('https://www.visitmexico.com/sites/default/files/styles/extralarge/public/field/image/2017/01/actividades-principales_guanajuato_san-miguel-de-allende_descubre-san-miguel-gotico_01.jpg?itok=RicoQ6Pn')",
         backgroundSize:"cover",
         display:"table",
         width:"100%",
-        height:"100vh"
+        height:"95vh"
     },
     card:{
         paddingTop:"20px",
