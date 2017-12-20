@@ -60,3 +60,14 @@ export const removeClient = (client) => (dispatch, getState) =>{
             return Promise.reject(e.message);
         });
 };
+
+//getClients for logged distributor
+export const getUserClients = (user) => (dispatch) => {
+    console.log("trallendo clientes de ", user);
+    db.child("clients")
+        .on("child_added", snap=>{
+           const client = snap.val();
+           dispatch(addClientWatched(client));
+        });
+
+};
